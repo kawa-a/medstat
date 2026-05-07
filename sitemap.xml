@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://your-website-url.example.com/posts/welcome/index.html</loc>
+    <loc>https://kawa-a.github.io/medstat/posts/welcome/index.html</loc>
     <lastmod>2026-05-07T08:26:09.810Z</lastmod>
   </url>
   <url>
-    <loc>https://your-website-url.example.com/index.html</loc>
-    <lastmod>2026-05-07T08:28:03.537Z</lastmod>
+    <loc>https://kawa-a.github.io/medstat/index.html</loc>
+    <lastmod>2026-05-07T09:13:28.259Z</lastmod>
   </url>
   <url>
-    <loc>https://your-website-url.example.com/about.html</loc>
+    <loc>https://kawa-a.github.io/medstat/about.html</loc>
     <lastmod>2026-05-07T08:26:09.820Z</lastmod>
   </url>
   <url>
-    <loc>https://your-website-url.example.com/posts/post-with-code/index.html</loc>
+    <loc>https://kawa-a.github.io/medstat/posts/post-with-code/index.html</loc>
     <lastmod>2026-05-07T08:26:09.816Z</lastmod>
   </url>
 </urlset>
