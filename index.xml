@@ -5,7 +5,7 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>KindaiSup</title>
+<title>サポートページ</title>
 <link>https://kawa-a.github.io/medstat/</link>
 <atom:link href="https://kawa-a.github.io/medstat/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog built with Quarto</description>
@@ -47,7 +47,7 @@ font-style: inherit;">1</span></span></code></pre></div></div>
 </item>
 <item>
   <title>Welcome To My Blog</title>
-  <dc:creator>Tristan O&#39;Malley</dc:creator>
+  <dc:creator>川口淳 </dc:creator>
   <link>https://kawa-a.github.io/medstat/posts/welcome/</link>
   <description><![CDATA[ 
 
@@ -57,14 +57,13 @@ font-style: inherit;">1</span></span></code></pre></div></div>
 
 <p>This is the first post in a Quarto blog. Welcome!</p>
 <p><img src="https://kawa-a.github.io/medstat/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
 
 
 
  ]]></description>
   <category>news</category>
   <guid>https://kawa-a.github.io/medstat/posts/welcome/</guid>
-  <pubDate>Sun, 03 May 2026 15:00:00 GMT</pubDate>
+  <pubDate>Wed, 06 May 2026 15:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
