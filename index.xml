@@ -12,6 +12,31 @@
 <generator>quarto-1.8.25</generator>
 <lastBuildDate>Mon, 11 May 2026 15:00:00 GMT</lastBuildDate>
 <item>
+  <title>演習問題のデータ</title>
+  <dc:creator>川口淳 </dc:creator>
+  <link>https://kawa-a.github.io/medstat/posts/data/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<ul>
+<li><p>コンピュータ演習2 <code>2群の血圧変化量の差.xlsx</code></p></li>
+<li><p>コンピュータ演習3 <code>回帰分析例データ.xlsx</code></p></li>
+<li><p>コンピュータ演習4 <code>生存時間例データ.xlsx</code></p></li>
+</ul>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://kawa-a.github.io/medstat/posts/data/</guid>
+  <pubDate>Mon, 11 May 2026 15:00:00 GMT</pubDate>
+</item>
+<item>
   <title>演習問題の解答例</title>
   <dc:creator>川口淳 </dc:creator>
   <link>https://kawa-a.github.io/medstat/posts/exercise/</link>
@@ -97,7 +122,7 @@ font-style: inherit;">1</span></span></code></pre></div></div>
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
+<p>Welcome!</p>
 <p><img src="https://kawa-a.github.io/medstat/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
 
 
