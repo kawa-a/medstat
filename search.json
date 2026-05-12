@@ -2,16 +2,23 @@
   {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "title": "Welcome To サポートページ",
     "section": "",
     "text": "This is the first post in a Quarto blog. Welcome!"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "サポートページ",
+    "objectID": "posts/exercise/index.html",
+    "href": "posts/exercise/index.html",
+    "title": "演習問題の解答例",
     "section": "",
-    "text": "Post With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nMay 7, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nMay 7, 2026\n\n\n川口淳\n\n\n\n\n\nNo matching items"
+    "text": "以下は、ある患者の基本情報および検査値である。 この中から「連続変数」に該当するものを2つ選びなさい。\n\n腎不全の病期分類：第3期\n年齢：80歳\n性別：男性\n主訴：浮腫\n血清クレアチニン濃度：5.0 mg/dL\n\n\n\n正解： 年齢、血清クレアチニン濃度\n解説： 連続変数は、理論上ある区間内で連続的な値をとりうる量的変数である。年齢や血清クレアチニン濃度は測定量として扱える。 一方、病期分類・性別・主訴はカテゴリとして扱う。"
+  },
+  {
+    "objectID": "posts/exercise/index.html#確認問題",
+    "href": "posts/exercise/index.html#確認問題",
+    "title": "演習問題の解答例",
+    "section": "",
+    "text": "以下は、ある患者の基本情報および検査値である。 この中から「連続変数」に該当するものを2つ選びなさい。\n\n腎不全の病期分類：第3期\n年齢：80歳\n性別：男性\n主訴：浮腫\n血清クレアチニン濃度：5.0 mg/dL\n\n\n\n正解： 年齢、血清クレアチニン濃度\n解説： 連続変数は、理論上ある区間内で連続的な値をとりうる量的変数である。年齢や血清クレアチニン濃度は測定量として扱える。 一方、病期分類・性別・主訴はカテゴリとして扱う。"
   },
   {
     "objectID": "about.html",
@@ -19,6 +26,13 @@
     "title": "About",
     "section": "",
     "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "サポートページ",
+    "section": "",
+    "text": "演習問題の解答例\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nMay 12, 2026\n\n\n川口淳\n\n\n\n\n\n\n\n\n\n\n\n\nCode\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nMay 12, 2026\n\n\n川口淳\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To サポートページ\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nMay 12, 2026\n\n\n川口淳\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/post-with-code/index.html",

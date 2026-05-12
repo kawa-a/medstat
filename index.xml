@@ -8,12 +8,54 @@
 <title>サポートページ</title>
 <link>https://kawa-a.github.io/medstat/</link>
 <atom:link href="https://kawa-a.github.io/medstat/index.xml" rel="self" type="application/rss+xml"/>
-<description>A blog built with Quarto</description>
+<description>サポートページ</description>
 <generator>quarto-1.8.25</generator>
-<lastBuildDate>Wed, 06 May 2026 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 11 May 2026 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>演習問題の解答例</title>
+  <dc:creator>川口淳 </dc:creator>
+  <link>https://kawa-a.github.io/medstat/posts/exercise/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="データの表示" class="level1">
+<h1>データの表示</h1>
+<section id="確認問題" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="確認問題">確認問題</h2>
+<section id="第1問" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第1問">第1問</h3>
+<p>以下は、ある患者の基本情報および検査値である。 <strong>この中から「連続変数」に該当するものを2つ選びなさい。</strong></p>
+<ul>
+<li>腎不全の病期分類：第3期</li>
+<li>年齢：80歳</li>
+<li>性別：男性</li>
+<li>主訴：浮腫</li>
+<li>血清クレアチニン濃度：5.0 mg/dL</li>
+</ul>
+<section id="解答例" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例">解答例</h4>
+<p><strong>正解：</strong> 年齢、血清クレアチニン濃度</p>
+<p><strong>解説：</strong> 連続変数は、理論上ある区間内で連続的な値をとりうる量的変数である。年齢や血清クレアチニン濃度は測定量として扱える。 一方、病期分類・性別・主訴はカテゴリとして扱う。</p>
+
+
+</section>
+</section>
+</section>
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://kawa-a.github.io/medstat/posts/exercise/</guid>
+  <pubDate>Mon, 11 May 2026 15:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Post With Code</title>
-  <dc:creator>Harlow Malloc</dc:creator>
+  <dc:creator>川口淳 </dc:creator>
   <link>https://kawa-a.github.io/medstat/posts/post-with-code/</link>
   <description><![CDATA[ 
 
@@ -42,11 +84,11 @@ font-style: inherit;">1</span></span></code></pre></div></div>
   <category>code</category>
   <category>analysis</category>
   <guid>https://kawa-a.github.io/medstat/posts/post-with-code/</guid>
-  <pubDate>Wed, 06 May 2026 15:00:00 GMT</pubDate>
+  <pubDate>Mon, 11 May 2026 15:00:00 GMT</pubDate>
   <media:content url="https://kawa-a.github.io/medstat/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Welcome To My Blog</title>
+  <title>Welcome To サポートページ</title>
   <dc:creator>川口淳 </dc:creator>
   <link>https://kawa-a.github.io/medstat/posts/welcome/</link>
   <description><![CDATA[ 
@@ -63,7 +105,7 @@ font-style: inherit;">1</span></span></code></pre></div></div>
  ]]></description>
   <category>news</category>
   <guid>https://kawa-a.github.io/medstat/posts/welcome/</guid>
-  <pubDate>Wed, 06 May 2026 15:00:00 GMT</pubDate>
+  <pubDate>Mon, 11 May 2026 15:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
