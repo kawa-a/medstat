@@ -88,13 +88,13 @@
     "href": "posts/data/index.html",
     "title": "演習問題のデータ",
     "section": "",
-    "text": "コンピュータ演習2\nデータファイル：2群の血圧変化量の差.xlsx\n\n\n\n\n\n\n\nコンピュータ演習3 回帰分析例データ.xlsx\nコンピュータ演習4 生存時間例データ.xlsx"
+    "text": "コンピュータ演習2\nデータファイル：2群の血圧変化量の差.xlsx\n\n\n\n\n\n\n\n\nコンピュータ演習3\nデータファイル：回帰分析例データ.xlsx\n\n\n\n\n\n\n\n\nコンピュータ演習4\nデータファイル：生存時間例データ.xlsx"
   },
   {
     "objectID": "posts/post-with-code/index.html",
     "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
+    "title": "R Code",
     "section": "",
-    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+    "text": "本書で使用したRコードを共有します。\n\n二値データと二項分布\n\n## ==== パラメータ設定 ====\nset.seed(123)\np &lt;- 0.4       # 母比率\nn &lt;- 6          # 標本サイズ\nB &lt;- 10000      # シミュレーション回数\n\n## ==== シミュレーション ====\nx &lt;- rbinom(B, size = n, prob = p)\n\n## ==== 集計（有病者数・標本比率・度数）====\nk_vals &lt;- 0:n\nfreq   &lt;- tabulate(x + 1, nbins = n + 1)\n\nres &lt;- data.frame(有病者数 = k_vals, 標本比率 = round(k_vals / n, 2), 度数 = as.integer(freq),\n  row.names = NULL, check.names = FALSE\n)\nres\n\n  有病者数 標本比率 度数\n1        0     0.00  487\n2        1     0.17 1835\n3        2     0.33 3169\n4        3     0.50 2766\n5        4     0.67 1369\n6        5     0.83  336\n7        6     1.00   38"
   }
 ]
