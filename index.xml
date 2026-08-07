@@ -21,13 +21,22 @@
 
 
 
+<section id="コンピュータ演習2" class="level1">
+<h1>コンピュータ演習2</h1>
+<p>データファイル：<a href="./2群の血圧変化量の差.xlsx">2群の血圧変化量の差.xlsx</a></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-c629715e28ba50dc85ac" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-c629715e28ba50dc85ac">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"-6\" data-max=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3","4","5","6","7","8","9"],["I1","I2","I3","I4","I5","C1","C2","C3","C4"],["介入群","介入群","介入群","介入群","介入群","対照群","対照群","対照群","対照群"],[-2,-6,-3,-1,-5,2,-1,0,-2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>group<\/th>\n      <th>delta<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"autoWidth":true,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"id","targets":1},{"name":"group","targets":2},{"name":"delta","targets":3}],"order":[],"orderClasses":false,"orderCellsTop":true,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
 <ul>
-<li><p>コンピュータ演習2 <code>2群の血圧変化量の差.xlsx</code></p></li>
 <li><p>コンピュータ演習3 <code>回帰分析例データ.xlsx</code></p></li>
 <li><p>コンピュータ演習4 <code>生存時間例データ.xlsx</code></p></li>
 </ul>
 
 
+</section>
 
  ]]></description>
   <category>news</category>
@@ -50,8 +59,8 @@
 <h1>データの表示</h1>
 <section id="確認問題" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="確認問題">確認問題</h2>
-<section id="第1問" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="第1問">第1問</h3>
+<section id="第1問変数の型の判別" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第1問変数の型の判別">第1問（変数の型の判別）</h3>
 <p>以下は、ある患者の基本情報および検査値である。 <strong>この中から「連続変数」に該当するものを2つ選びなさい。</strong></p>
 <ul>
 <li>腎不全の病期分類：第3期</li>
@@ -63,7 +72,999 @@
 <section id="解答例" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="解答例">解答例</h4>
 <p><strong>正解：</strong> 年齢、血清クレアチニン濃度</p>
-<p><strong>解説：</strong> 連続変数は、理論上ある区間内で連続的な値をとりうる量的変数である。年齢や血清クレアチニン濃度は測定量として扱える。 一方、病期分類・性別・主訴はカテゴリとして扱う。</p>
+<p><strong>解説：</strong> 連続変数は、理論上ある区間内で連続的な値をとりうる量的変数である。年齢や血清クレアチニン濃度は測定量として扱える。一方、病期分類・性別・主訴はカテゴリとして扱う。</p>
+</section>
+</section>
+<section id="第2問要約統計量の選択" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第2問要約統計量の選択">第2問（要約統計量の選択）</h3>
+<p>複数の患者から HbA1c を測定したデータが得られた。 <strong>これらのデータ全体の特徴を要約するのに適した指標を2つ選びなさい。</strong></p>
+<ul>
+<li>標準偏差</li>
+<li>ある1人の測定値</li>
+<li>基準値（正常範囲）</li>
+<li>平均</li>
+<li>自分自身の測定値</li>
+</ul>
+<section id="解答例-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-1">解答例</h4>
+<p><strong>正解：</strong> 平均、標準偏差</p>
+<p><strong>解説：</strong> 平均は中心傾向、標準偏差はばらつきを表す。個々人の値や正常範囲は、標本全体の要約統計量ではない。</p>
+</section>
+</section>
+<section id="第3問箱ひげ図の解釈" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第3問箱ひげ図の解釈">第3問（箱ひげ図の解釈）</h3>
+<p>次のうち、<strong>箱ひげ図から読み取れること</strong>として最も適切なものを1つ選びなさい。</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">par</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mar =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span>
+<span id="cb1-2">A <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">65</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>)</span>
+<span id="cb1-3">B <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">65</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>)</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">boxplot</span>(A, B, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">names =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"治療A群"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"治療B群"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"体重 (kg)"</span>)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://kawa-a.github.io/medstat/posts/exercise/index_files/figure-html/data-plot-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>中央値は求めることができない</li>
+<li>標準偏差は両群で等しい</li>
+<li>B群の方が肥満傾向であると断定できる</li>
+<li>平均値は両群で等しい</li>
+<li>中央値は箱ひげ図から読み取ることができる</li>
+</ul>
+<section id="解答例-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-2">解答例</h4>
+<p><strong>正解：</strong> 中央値は箱ひげ図から読み取ることができる</p>
+<p><strong>解説：</strong> 箱ひげ図では箱の中の線が中央値を表す。一方、平均値や標準偏差は通常の箱ひげ図から直接はわからない。</p>
+</section>
+</section>
+<section id="第4問分布形状の推定" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第4問分布形状の推定">第4問（分布形状の推定）</h3>
+<p>以下の箱ひげ図で描かれた炎症マーカー値の分布に最も近いヒストグラムを(1)〜(5)から選びなさい。</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://kawa-a.github.io/medstat/posts/exercise/index_files/figure-html/data-plot-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://kawa-a.github.io/medstat/posts/exercise/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="解答例-3" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-3">解答例</h4>
+<p><strong>正解：</strong> (3)</p>
+<p><strong>解説：</strong> 箱ひげ図では上側のひげが長く、高値側に外れ値または裾の長さが見られるため、分布は右に歪んでいると考えられる。 したがって、右に裾を引くヒストグラムである(3)が最も近い。</p>
+<hr>
+</section>
+</section>
+</section>
+</section>
+<section id="二値データと二項分布" class="level1">
+<h1>二値データと二項分布</h1>
+<section id="確認問題-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="確認問題-1">確認問題</h2>
+<section id="第1問二項分布確率の計算" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第1問二項分布確率の計算">第1問（二項分布：確率の計算）</h3>
+<p>二項分布 <img src="https://latex.codecogs.com/png.latex?X%20%5Csim%20B(4,%201/3)"> について答えなさい。</p>
+<ol type="1">
+<li><img src="https://latex.codecogs.com/png.latex?%5CPr(X=2)"> を求めなさい。</li>
+<li><img src="https://latex.codecogs.com/png.latex?%5CPr(X%5Cle%202)"> を求めなさい。</li>
+</ol>
+<section id="解答例-4" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-4">解答例</h4>
+<p>二項分布の確率関数は</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5CPr(X=k)=%5Cbinom%7Bn%7D%7Bk%7Dp%5Ek(1-p)%5E%7Bn-k%7D%0A"></p>
+<p>である。</p>
+<ol type="1">
+<li><p><img src="https://latex.codecogs.com/png.latex?%0A%5CPr(X=2)=%5Cbinom%7B4%7D%7B2%7D%5Cleft(%5Cfrac%7B1%7D%7B3%7D%5Cright)%5E2%5Cleft(%5Cfrac%7B2%7D%7B3%7D%5Cright)%5E2%0A=%5Cfrac%7B24%7D%7B81%7D%0A"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?%0A%5CPr(X%5Cle%202)=%5CPr(X=0)+%5CPr(X=1)+%5CPr(X=2)%0A=%5Cfrac%7B16%7D%7B81%7D+%5Cfrac%7B32%7D%7B81%7D+%5Cfrac%7B24%7D%7B81%7D%0A=%5Cfrac%7B72%7D%7B81%7D%0A"></p></li>
+</ol>
+<p><strong>答：</strong> (1) <img src="https://latex.codecogs.com/png.latex?24/81">、(2) <img src="https://latex.codecogs.com/png.latex?72/81"></p>
+</section>
+</section>
+<section id="第2問二項分布応用無効確率" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第2問二項分布応用無効確率">第2問（二項分布：応用・無効確率）</h3>
+<p>ある感染症に対して有効率50%（<img src="https://latex.codecogs.com/png.latex?p=0.5">）とされている治療薬がある。 この治療薬を患者3人に投与したとき、<strong>誰にも効果がない確率</strong>を求めなさい。</p>
+<section id="解答例-5" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-5">解答例</h4>
+<p>1人に効果がない確率は <img src="https://latex.codecogs.com/png.latex?1-p=0.5"> である。3人とも無効である確率は</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A(0.5)%5E3=0.125%0A"></p>
+<p>である。</p>
+<p><strong>答：</strong> 0.125</p>
+</section>
+</section>
+<section id="第3問二項分布期待値と分散" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第3問二項分布期待値と分散">第3問（二項分布：期待値と分散）</h3>
+<p><img src="https://latex.codecogs.com/png.latex?X%20%5Csim%20B(12,%200.5)"> に従うとき、 期待値 <img src="https://latex.codecogs.com/png.latex?E%5BX%5D"> と分散 <img src="https://latex.codecogs.com/png.latex?%5Cmathrm%7BVar%7D(X)">を求めなさい。</p>
+<section id="解答例-6" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-6">解答例</h4>
+<p>二項分布 <img src="https://latex.codecogs.com/png.latex?B(n,p)"> では</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AE%5BX%5D=np,%20%5Cqquad%20%5Cmathrm%7BVar%7D(X)=np(1-p)%0A"></p>
+<p>である。したがって</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AE%5BX%5D=12%5Ctimes%200.5=6%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathrm%7BVar%7D(X)=12%5Ctimes%200.5%5Ctimes%200.5=3%0A"></p>
+<p><strong>答：</strong> 期待値 6、分散 3</p>
+</section>
+</section>
+<section id="第4問標本比率期待値標準誤差分散の性質" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第4問標本比率期待値標準誤差分散の性質">第4問（標本比率：期待値・標準誤差・分散の性質）</h3>
+<p>問3と同じく <img src="https://latex.codecogs.com/png.latex?X%20%5Csim%20B(12,%200.5)"> とし、標本比率を <img src="https://latex.codecogs.com/png.latex?%5Chat%20p%20=%20X/n">（ただし <img src="https://latex.codecogs.com/png.latex?n=12">）とする。</p>
+<ol type="1">
+<li><img src="https://latex.codecogs.com/png.latex?E%5B%5Chat%20p%5D"> を求めなさい。</li>
+<li><img src="https://latex.codecogs.com/png.latex?%5Chat%20p"> の標準誤差（SE）を求めなさい。</li>
+<li>標本比率の分散について正しいものを1つ選びなさい。
+<ul>
+<li>全体の人数が増えると分散は小さくなる</li>
+<li>全体の人数が増えると分散は大きくなる</li>
+<li>全体の人数が増えても分散は変わらない</li>
+</ul></li>
+</ol>
+<section id="解答例-7" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-7">解答例</h4>
+<p>標本比率 <img src="https://latex.codecogs.com/png.latex?%5Chat%20p%20=%20X/n"> の期待値と分散は</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AE%5B%5Chat%20p%5D=p,%20%5Cqquad%20%5Cmathrm%7BVar%7D(%5Chat%20p)=%5Cfrac%7Bp(1-p)%7D%7Bn%7D%0A"></p>
+<p>である。</p>
+<ol type="1">
+<li><p><img src="https://latex.codecogs.com/png.latex?%0AE%5B%5Chat%20p%5D=0.5%0A"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?%0ASE(%5Chat%20p)=%5Csqrt%7B%5Cfrac%7Bp(1-p)%7D%7Bn%7D%7D%20=%20%5Csqrt%7B%5Cfrac%7B0.5%5Ctimes%200.5%7D%7B12%7D%7D%20%5Capprox%200.1443%0A"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?%0A%5Cmathrm%7BVar%7D(%5Chat%20p)=%5Cfrac%7Bp(1-p)%7D%7Bn%7D%0A"> より、<img src="https://latex.codecogs.com/png.latex?n"> が大きいほど標本比率の分散は小さくなる。</p></li>
+</ol>
+<p><strong>答：</strong> (1) 0.5、(2) 約0.1443、(3) 「全体の人数が増えると分散は小さくなる」</p>
+<hr>
+</section>
+</section>
+</section>
+</section>
+<section id="連続データと正規分布" class="level1">
+<h1>連続データと正規分布</h1>
+<section id="確認問題-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="確認問題-2">確認問題</h2>
+<section id="第1問-正規分布の基本" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第1問-正規分布の基本">第1問 （正規分布の基本）</h3>
+<p><strong>正規分布</strong>について、次の問いに答えなさい。</p>
+<ol type="1">
+<li>正規分布の形状的特徴を <strong>2つ</strong> 述べなさい。</li>
+<li>正規分布における <strong>平均・中央値・最頻値</strong> の関係を述べなさい。</li>
+<li>「平均から標準偏差だけ離れた範囲にデータの95%が含まれる」という記述は正しいか。正しくない場合は、<strong>正しい内容</strong>に直して述べなさい。</li>
+</ol>
+<section id="解答例-8" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-8">解答例</h4>
+<ol type="1">
+<li>釣鐘型で左右対称である、平均付近に観測値が集中し両端ほど少なくなる、など。</li>
+<li>正規分布では <strong>平均 = 中央値 = 最頻値</strong> である。</li>
+<li>正しくない。正しくは、<strong>平均 ± 1標準偏差の範囲には約68%</strong>、<strong>平均 ± 1.96標準偏差（概ね2標準偏差）の範囲には約95%</strong> のデータが含まれる。</li>
+</ol>
+</section>
+</section>
+<section id="第2問-偏差値" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第2問-偏差値">第2問 （偏差値）</h3>
+<p><strong>偏差値</strong>について、次の問いに答えなさい。</p>
+<ol type="1">
+<li>偏差値の定義（式）を、元データ <img src="https://latex.codecogs.com/png.latex?x">、平均 <img src="https://latex.codecogs.com/png.latex?%5Cbar%7Bx%7D">、標準偏差 <img src="https://latex.codecogs.com/png.latex?s"> を用いて書きなさい。</li>
+<li>偏差値の <strong>平均</strong> と <strong>標準偏差</strong> はそれぞれいくつになるか答えなさい。</li>
+<li>平均170、標準偏差10の集団で、身長180の人の偏差値を求めなさい。</li>
+</ol>
+<section id="解答例-9" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-9">解答例</h4>
+<ol type="1">
+<li>偏差値は</li>
+</ol>
+<p><img src="https://latex.codecogs.com/png.latex?%0A50%20+%2010%5Ctimes%20%5Cfrac%7Bx-%5Cbar%7Bx%7D%7D%7Bs%7D%0A"></p>
+<p>で定義される。</p>
+<ol start="2" type="1">
+<li>偏差値の平均は 50、標準偏差は 10 である。</li>
+<li><img src="https://latex.codecogs.com/png.latex?%0A50%20+%2010%5Ctimes%20%5Cfrac%7B180-170%7D%7B10%7D=60%0A"></li>
+</ol>
+<p><strong>答：</strong> 60</p>
+</section>
+</section>
+<section id="第3問-人数の推定正規分布" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第3問-人数の推定正規分布">第3問 人数の推定（正規分布）</h3>
+<p>2000人の健診受診者の収縮期血圧 <img src="https://latex.codecogs.com/png.latex?X"> は、平均120 mmHg、標準偏差15 mmHgの正規分布</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AX%5Csim%20N(120,%2015%5E2)%0A"></p>
+<p>に従うとする。次を求めなさい（人数は四捨五入して整数）。</p>
+<ol type="1">
+<li>140 mmHg以上の人は約何人いるか。</li>
+<li>120〜150 mmHgの人は約何人いるか。</li>
+</ol>
+<section id="解答例-10" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-10">解答例</h4>
+<ol type="1">
+<li><p>標準化すると <img src="https://latex.codecogs.com/png.latex?%0AZ%20=%20%5Cfrac%7B140-120%7D%7B15%7D%20%5Capprox%201.33%0A"> より、 <img src="https://latex.codecogs.com/png.latex?%0A%5CPr(X%5Cge%20140)=%5CPr(Z%5Cge%201.33)%5Capprox%200.091%0A"> したがって人数は <img src="https://latex.codecogs.com/png.latex?%0A2000%5Ctimes%200.091%20%5Capprox%20182%0A"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?%0A%5CPr(120%5Cle%20X%5Cle%20150)=%5CPr(0%5Cle%20Z%5Cle%202)=%5CPhi(2)-%5CPhi(0)%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Capprox%200.9772%20-%200.5000%20=%200.4772%0A"> したがって人数は <img src="https://latex.codecogs.com/png.latex?%0A2000%5Ctimes%200.4772%20%5Capprox%20954%0A"></p></li>
+</ol>
+<p><strong>答：</strong> (1) 約182人、(2) 約954人</p>
+</section>
+</section>
+<section id="第4問-確率の計算" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第4問-確率の計算">第4問 確率の計算</h3>
+<p>次の確率を求めなさい（標準正規分布の累積分布関数を <img src="https://latex.codecogs.com/png.latex?%5CPhi(%5Ccdot)"> としてよい）。</p>
+<ol type="1">
+<li><img src="https://latex.codecogs.com/png.latex?Z%5Csim%20N(0,1)"> のとき <img src="https://latex.codecogs.com/png.latex?%0A%5CPr(-1.96%5Cle%20Z%5Cle%201.96)%0A"></li>
+<li>空腹時血糖 <img src="https://latex.codecogs.com/png.latex?X%5Csim%20N(100,%2015%5E2)"> のとき <img src="https://latex.codecogs.com/png.latex?%0A%5CPr(70.6%5Cle%20X%5Cle%20129.4)%0A"></li>
+</ol>
+<section id="解答例-11" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-11">解答例</h4>
+<ol type="1">
+<li><p><img src="https://latex.codecogs.com/png.latex?%0A%5CPr(-1.96%5Cle%20Z%5Cle%201.96)=%5CPhi(1.96)-%5CPhi(-1.96)%5Capprox%200.95%0A"></p></li>
+<li><p>標準化すると <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B70.6-100%7D%7B15%7D=-1.96,%20%5Cqquad%20%5Cfrac%7B129.4-100%7D%7B15%7D=1.96%0A"> なので <img src="https://latex.codecogs.com/png.latex?%0A%5CPr(70.6%5Cle%20X%5Cle%20129.4)=%5CPr(-1.96%5Cle%20Z%5Cle%201.96)%5Capprox%200.95%0A"></p></li>
+</ol>
+<p><strong>答：</strong> いずれも約 0.95</p>
+</section>
+</section>
+<section id="第5問-分散の推定" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第5問-分散の推定">第5問 分散の推定</h3>
+<p>平均0、分散 <img src="https://latex.codecogs.com/png.latex?%5Csigma%5E2"> の正規分布</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0AX%5Csim%20N(0,%20%5Csigma%5E2)%0A"></p>
+<p>について</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5CPr(-1.2%5Cle%20X%5Cle%201.2)=0.95%0A"></p>
+<p>であった。<strong>分散 <img src="https://latex.codecogs.com/png.latex?%5Csigma%5E2"></strong> を求めなさい（概数可）。</p>
+<section id="解答例-12" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-12">解答例</h4>
+<p>95%が中央に入るということは、</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A1.2%20%5Capprox%201.96%5Csigma%0A"></p>
+<p>と考えればよい。したがって</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Csigma%20%5Capprox%20%5Cfrac%7B1.2%7D%7B1.96%7D%20%5Capprox%200.612%0A"></p>
+<p>よって</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Csigma%5E2%20%5Capprox%200.612%5E2%20%5Capprox%200.374%0A"></p>
+<p><strong>答：</strong> 約 0.37</p>
+</section>
+</section>
+<section id="任意rで検算したい場合" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="任意rで検算したい場合">（任意）Rで検算したい場合</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 第4問(1)</span></span>
+<span id="cb2-2"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## 確認問題 {.unnumbered}</span></span>
+<span id="cb2-3"></span>
+<span id="cb2-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.96</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.96</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9500042</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 第4問(2)</span></span>
+<span id="cb4-2"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## 確認問題 {.unnumbered}</span></span>
+<span id="cb4-3"></span>
+<span id="cb4-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">129.4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">70.6</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9500042</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 第3問の人数推定例</span></span>
+<span id="cb6-2"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## 確認問題 {.unnumbered}</span></span>
+<span id="cb6-3"></span>
+<span id="cb6-4">N <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2000</span></span>
+<span id="cb6-5">p_ge_140 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">140</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">120</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>)</span>
+<span id="cb6-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(N <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> p_ge_140)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 182</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">p_120_150 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">150</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">120</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">120</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">120</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>)</span>
+<span id="cb8-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(N <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> p_120_150)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 954</code></pre>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="割合の推定と検定" class="level1">
+<h1>割合の推定と検定</h1>
+<section id="確認問題-3" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="確認問題-3">確認問題</h2>
+<section id="第1問割合の推定標準誤差" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第1問割合の推定標準誤差">第1問（割合の推定：標準誤差）</h3>
+<p>有効率60%とされている治療薬を5人に投与したところ、4人に効果があった。 母比率を <img src="https://latex.codecogs.com/png.latex?p_0=0.6"> と仮定したとき、標本比率 <img src="https://latex.codecogs.com/png.latex?%5Chat%20p"> の<strong>標準誤差</strong> <img src="https://latex.codecogs.com/png.latex?SE(%5Chat%20p)"> を求めよ（小数第2位まで）。</p>
+<section id="解答例-13" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-13">解答例</h4>
+<p><img src="https://latex.codecogs.com/png.latex?%0ASE(%5Chat%20p)=%5Csqrt%7B%5Cfrac%7Bp_0(1-p_0)%7D%7Bn%7D%7D=%5Csqrt%7B%5Cfrac%7B0.6%5Ctimes%200.4%7D%7B5%7D%7D%5Capprox%200.219%0A"></p>
+<p><strong>答：</strong> 約 0.22</p>
+</section>
+</section>
+<section id="第2問二項検定p値と有意水準の解釈" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第2問二項検定p値と有意水準の解釈">第2問（二項検定：<img src="https://latex.codecogs.com/png.latex?p">値と有意水準の解釈）</h3>
+<p>有効率50%とされている治療薬を8人に投与したところ、1人に効果があった。 片側の二項検定を行った結果、<img src="https://latex.codecogs.com/png.latex?p">値が0.07であった。有意水準10%での検定結果を、<strong>統計的に正しい日本語</strong>で簡潔に述べよ。</p>
+<section id="解答例-14" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-14">解答例</h4>
+<p>ここでは対立仮説を「有効率は50%より低い」とする片側検定と考える。 <img src="https://latex.codecogs.com/png.latex?p">値 0.07 は有意水準 0.10 より小さいため、「有効率が50%である」という<strong>帰無仮説は棄却される</strong>。 したがって、「有効率が50%である」という仮説のもとでは、観測された結果は比較的起こりにくく、<strong>有効率は50%より低い可能性が示唆される</strong>。</p>
+</section>
+</section>
+<section id="第3問有意差なしの解釈" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第3問有意差なしの解釈">第3問（有意差なしの解釈）</h3>
+<p>検定の結果、有意水準0.05で<strong>有意差が認められなかった</strong>。この結果から<strong>言えること</strong>を1つ、<strong>言えないこと</strong>を1つ書け。</p>
+<section id="解答例-15" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-15">解答例</h4>
+<ul>
+<li><strong>言えること：</strong> 帰無仮説を棄却できなかった（差があるという十分な証拠が得られなかった）。</li>
+<li><strong>言えないこと：</strong> 帰無仮説が正しい、すなわち「差がない」と断定すること。</li>
+</ul>
+</section>
+</section>
+<section id="第4問信頼区間母比率の95-ci" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第4問信頼区間母比率の95-ci">第4問（信頼区間：母比率の95% CI）</h3>
+<p>625人の臨床試験で有効率が0.2（20%）であった。正規近似により、母比率の95%信頼区間を求めよ（小数第3位まで）。</p>
+<section id="解答例-16" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-16">解答例</h4>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Chat%20p%20=%200.2,%20%5Cqquad%20n%20=%20625%0A"></p>
+<p>まず標準誤差は</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0ASE=%5Csqrt%7B%5Cfrac%7B%5Chat%20p(1-%5Chat%20p)%7D%7Bn%7D%7D=%5Csqrt%7B%5Cfrac%7B0.2%5Ctimes0.8%7D%7B625%7D%7D=0.016%0A"></p>
+<p>95%信頼区間は</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A0.2%5Cpm%201.96%5Ctimes%200.016%20=%200.2%5Cpm%200.03136%0A"></p>
+<p>したがって</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5B0.16864,%5C%200.23136%5D%20%5Capprox%20%5B0.169,%5C%200.231%5D%0A"></p>
+<p><strong>答：</strong> <img src="https://latex.codecogs.com/png.latex?%5B0.169,%200.231%5D"></p>
+</section>
+</section>
+<section id="第5問標本誤差非標本誤差" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第5問標本誤差非標本誤差">第5問（標本誤差・非標本誤差）</h3>
+<p>標本調査に伴う誤差には<strong>標本誤差</strong>と<strong>非標本誤差</strong>がある。それぞれについて、(1)定義、(2)数値評価が可能かどうか、を簡潔に説明せよ。</p>
+<section id="解答例-17" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-17">解答例</h4>
+<ul>
+<li><strong>標本誤差：</strong> 標本抽出に伴う偶然変動によって生じる誤差である。標準誤差や分散などとして<strong>数値評価が可能</strong>である。</li>
+<li><strong>非標本誤差：</strong> 非回答、測定誤差、記入ミス、調査票設計の不備など、抽出以外の要因で生じる誤差である。一般には<strong>一律の式で数値評価しにくい</strong>。</li>
+</ul>
+</section>
+</section>
+<section id="付録確認用計算r" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="付録確認用計算r">付録：確認用計算（R）</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">p0 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.6</span>; n1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span></span>
+<span id="cb10-2">se1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(p0 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> p0) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> n1)</span>
+<span id="cb10-3">se1</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.219089</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">phat <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>; n2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">625</span></span>
+<span id="cb12-2">se4 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(phat <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> phat) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> n2)</span>
+<span id="cb12-3">ci4 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> phat <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.96</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> se4</span>
+<span id="cb12-4">se4; ci4</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.016</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.16864 0.23136</code></pre>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="平均の推定と検定" class="level1">
+<h1>平均の推定と検定</h1>
+<section id="確認問題-4" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="確認問題-4">確認問題</h2>
+<section id="第1問-標準誤差と平均の差があるかの判断" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第1問-標準誤差と平均の差があるかの判断">第1問 （標準誤差と「平均の差があるか」の判断）</h3>
+<p>D病院受診者100名の総コレステロール値の標準偏差は10であった。E病院受診者225名の総コレステロール値の標準偏差も10であった。</p>
+<ol type="1">
+<li>D病院とE病院それぞれの <strong>標準誤差（SE）</strong> を求めよ。</li>
+<li>2群の標準誤差が異なる理由を、式を用いて説明せよ。</li>
+<li>「標準偏差が同じ」「標準誤差が異なる」という情報だけで、<strong>D病院とE病院の平均が異なる</strong>と言えるか。理由も述べよ。</li>
+<li>「E病院の検査方法は精度が高い」と言えるか。言える／言えないの判断と、その根拠を述べよ。</li>
+</ol>
+<section id="解答例-18" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-18">解答例</h4>
+<ol type="1">
+<li><p>標準誤差は <img src="https://latex.codecogs.com/png.latex?SE%20=%20SD/%5Csqrt%7Bn%7D"> より、</p>
+<ul>
+<li>D病院：<img src="https://latex.codecogs.com/png.latex?10/%5Csqrt%7B100%7D=1.0"></li>
+<li>E病院：<img src="https://latex.codecogs.com/png.latex?10/%5Csqrt%7B225%7D=10/15%5Capprox%200.667"></li>
+</ul></li>
+<li><p>標準誤差は <img src="https://latex.codecogs.com/png.latex?%0ASE=%5Cfrac%7BSD%7D%7B%5Csqrt%7Bn%7D%7D%0A"> で表される。標準偏差が同じでも、標本サイズ <img src="https://latex.codecogs.com/png.latex?n"> が大きいほど分母が大きくなるため、SEは小さくなる。</p></li>
+<li><p><strong>言えない。</strong> 標準誤差は「標本平均のばらつき」の大きさを示すものであり、平均値そのものの差の有無は、各群の標本平均やその差を実際に比較しなければ判断できない。</p></li>
+<li><p><strong>言えない。</strong> ここで小さいのは「標準誤差」であり、これは標本サイズの影響を受ける。検査法の測定精度を直接示しているわけではない。</p></li>
+</ol>
+</section>
+</section>
+<section id="第2問-95信頼区間の比較と解釈" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第2問-95信頼区間の比較と解釈">第2問 （95%信頼区間の比較と解釈）</h3>
+<p>血清総コレステロール平均値の95%信頼区間を算出したところ、F病院受診者では <strong>213–227</strong>、G病院受診者では <strong>218–222</strong> であった。</p>
+<ol type="1">
+<li>各群の <strong>標本平均（点推定値）</strong> を推定せよ。</li>
+<li>どちらの群の推定が <strong>より精密（precisionが高い）</strong> といえるか。理由を述べよ。</li>
+<li>基準値の目安を200とするとき、各群について「母平均が200と異なる」と <strong>5%水準で言えるか</strong> を、信頼区間を用いて判断せよ。</li>
+<li>「両群とも母平均は220である可能性が高い」という主張は妥当か。妥当／不妥当を述べ、根拠を説明せよ。</li>
+</ol>
+<section id="解答例-19" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-19">解答例</h4>
+<ol type="1">
+<li><p>信頼区間の中央が点推定値なので、</p>
+<ul>
+<li>F病院：<img src="https://latex.codecogs.com/png.latex?(213+227)/2=220"></li>
+<li>G病院：<img src="https://latex.codecogs.com/png.latex?(218+222)/2=220"></li>
+</ul></li>
+<li><p><strong>G病院の方が精密である。</strong> G病院の95%信頼区間の幅は4、F病院は14であり、区間が狭いほど推定の不確実性が小さい。</p></li>
+<li><p>いずれの区間にも200は含まれていない。 したがって、<strong>F病院・G病院ともに母平均は200と異なると5%水準で言える</strong>。</p></li>
+<li><p><strong>不妥当。</strong> 220は両方の95%信頼区間に含まれるため、母平均220と矛盾しない。しかし、95%信頼区間は「区間内の値が同じ確率で真である」ことや「220である確率が高い」ことを意味しない。したがって、「両群とも母平均は220である可能性が高い」とまでは言えない。</p></li>
+</ol>
+</section>
+</section>
+<section id="第3問95信頼区間に関する正誤" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第3問95信頼区間に関する正誤">第3問（95%信頼区間に関する正誤）</h3>
+<p>次の記述（A）〜（C）について、<strong>正しいか誤りか</strong>を判断し、各々1〜2行で理由を述べよ。</p>
+<ul>
+<li>（A）無作為抽出を繰り返し行って信頼区間を作ると、確率的に100回に95回は母平均の値を含む区間になる。</li>
+<li>（B）一般に例数が増えると標準誤差が小さくなり、信頼区間は狭くなる。</li>
+<li>（C）血圧のような連続データと、有効／無効のような二値データでは、95%信頼区間の計算式は異なる。</li>
+</ul>
+<section id="解答例-20" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-20">解答例</h4>
+<ul>
+<li><strong>（A）正しい。</strong> 同じ手続きを何度も繰り返せば、その約95%が真の母数を含む。</li>
+<li><strong>（B）正しい。</strong> 一般に <img src="https://latex.codecogs.com/png.latex?SE%20%5Cpropto%201/%5Csqrt%7Bn%7D"> であるため、例数が増えると標準誤差が小さくなり、信頼区間は狭くなる。</li>
+<li><strong>（C）正しい。</strong> 連続データでは平均の標準誤差、二値データでは比率の標準誤差を用いるため、区間推定の式は異なる。</li>
+</ul>
+</section>
+</section>
+<section id="第4問仮説検定誤り検出力" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第4問仮説検定誤り検出力">第4問（仮説検定・誤り・検出力）</h3>
+<p>次の記述（A）〜（C）について、<strong>正しいか誤りか</strong>を判断し、各々理由を述べよ。</p>
+<ul>
+<li>（A）帰無仮説が真なのに棄却してしまう誤りを <strong>第1種の過誤（<img src="https://latex.codecogs.com/png.latex?%5Calpha">エラー）</strong> という。</li>
+<li>（B）少数データの方が、一般に差を検出しやすい。</li>
+<li>（C）第1種の過誤は、検定を行う時点ですでに“結果として”わかっている。</li>
+</ul>
+<p>さらに、以下も答えよ。</p>
+<ul>
+<li><strong>帰無仮説</strong> と <strong>対立仮説</strong> をそれぞれ簡潔に定義せよ。</li>
+<li><strong>第1種の過誤、第2種の過誤、検出力（power）</strong> を、それぞれ言葉で説明せよ。</li>
+</ul>
+<section id="解答例-21" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-21">解答例</h4>
+<ul>
+<li><p><strong>（A）正しい。</strong> 帰無仮説が真であるにもかかわらず棄却する誤りが第1種の過誤である。</p></li>
+<li><p><strong>（B）誤り。</strong> 一般に例数が少ないと標準誤差が大きくなり、差を検出しにくくなる。</p></li>
+<li><p><strong>（C）誤り。</strong> 実際に帰無仮説が真かどうかは通常わからないため、個々の検定で第1種の過誤が起きたかどうかを直接知ることはできない。</p></li>
+<li><p><strong>帰無仮説：</strong> 差がない、効果がない、関連がない、などの基準となる仮説。</p></li>
+<li><p><strong>対立仮説：</strong> 差がある、効果がある、関連がある、など研究者が示したい仮説。</p></li>
+<li><p><strong>第1種の過誤：</strong> 本当は差がないのに「差がある」と結論する誤り。</p></li>
+<li><p><strong>第2種の過誤：</strong> 本当は差があるのに「差があると示せない」誤り。</p></li>
+<li><p><strong>検出力：</strong> 本当に差があるときに、それを正しく検出して帰無仮説を棄却できる確率。</p></li>
+</ul>
+</section>
+</section>
+<section id="第5問標本平均の性質と区間推定" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第5問標本平均の性質と区間推定">第5問（標本平均の性質と区間推定）</h3>
+<section id="健診受診者の収縮期血圧の区間推定" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="健診受診者の収縮期血圧の区間推定">(1) 健診受診者の収縮期血圧の区間推定</h4>
+<p>ある病院で健診受診者150名の収縮期血圧を調査した。平均収縮期血圧は128 mmHg、標準偏差は15 mmHgであった。</p>
+<ol type="1">
+<li>平均収縮期血圧の <strong>標準誤差</strong> を求めよ。</li>
+<li>（正規近似を用いてよいとして）平均収縮期血圧の <strong>95%信頼区間</strong> を求めよ。</li>
+</ol>
+<section id="解答例-22" class="level5">
+<h5 class="anchored" data-anchor-id="解答例-22">解答例</h5>
+<ol type="1">
+<li><p><img src="https://latex.codecogs.com/png.latex?%0ASE=%5Cfrac%7B15%7D%7B%5Csqrt%7B150%7D%7D%5Capprox%201.225%0A"></p></li>
+<li><p><img src="https://latex.codecogs.com/png.latex?%0A128%20%5Cpm%201.96%5Ctimes%201.225%0A%5Capprox%20128%20%5Cpm%202.40%0A"></p></li>
+</ol>
+<p>したがって</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5B125.6,%20130.4%5D%0A"></p>
+<p><strong>答：</strong> SE は約 1.23 mmHg、95%CI は約 <img src="https://latex.codecogs.com/png.latex?%5B125.6,%20130.4%5D"> mmHg</p>
+</section>
+</section>
+<section id="小標本での母平均の区間推定t分布" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="小標本での母平均の区間推定t分布">(2) 小標本での母平均の区間推定（t分布）</h4>
+<p>ある糖尿病患者群で15名を抽出して空腹時血糖値を測定したところ、平均値は102、不偏分散は12であった。</p>
+<ol type="1">
+<li>母平均の95%信頼区間を求める際に、<strong>どの分布</strong> を用いるべきか述べよ。</li>
+<li>95%信頼区間を求めよ。</li>
+</ol>
+<section id="解答例-23" class="level5">
+<h5 class="anchored" data-anchor-id="解答例-23">解答例</h5>
+<ol type="1">
+<li>標本サイズが小さく、母分散が未知なので <strong>t分布</strong>（自由度14）を用いる。</li>
+<li>不偏分散が12なので、不偏標準偏差は <img src="https://latex.codecogs.com/png.latex?%0As=%5Csqrt%7B12%7D%5Capprox%203.464%0A"> 標準誤差は <img src="https://latex.codecogs.com/png.latex?%0ASE=%5Cfrac%7Bs%7D%7B%5Csqrt%7B15%7D%7D%5Capprox%200.894%0A"> したがって95%信頼区間は <img src="https://latex.codecogs.com/png.latex?%0A102%20%5Cpm%20t_%7B0.975,14%7D%5Ctimes%200.894%0A"> ここで <img src="https://latex.codecogs.com/png.latex?t_%7B0.975,14%7D%5Capprox%202.145"> より、 <img src="https://latex.codecogs.com/png.latex?%0A102%20%5Cpm%201.92%0A"> なので <img src="https://latex.codecogs.com/png.latex?%0A%5B100.1,%20103.9%5D%0A"> 程度となる。</li>
+</ol>
+</section>
+</section>
+<section id="用語の穴埋めと説明" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="用語の穴埋めと説明">(3) 用語の穴埋めと説明</h4>
+<p>次の空欄を適切な用語で埋め、簡潔に説明せよ。</p>
+<ul>
+<li>標本平均がサンプルサイズ増加とともに母平均へ近づく性質は（ <strong>ア</strong> ）である。</li>
+<li>標本平均の分布がサンプルサイズ増加とともに正規分布に近づく性質は（ <strong>イ</strong> ）である。</li>
+<li>母分散を標本から推定する代表的な量のうち、期待値として母分散に一致するものは（ <strong>ウ</strong> ）である。</li>
+</ul>
+<section id="解答例-24" class="level5">
+<h5 class="anchored" data-anchor-id="解答例-24">解答例</h5>
+<ul>
+<li><strong>ア：大数の法則</strong></li>
+<li><strong>イ：中心極限定理</strong></li>
+<li><strong>ウ：不偏分散</strong></li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+</section>
+</section>
+<section id="群間比較" class="level1">
+<h1>群間比較</h1>
+<section id="確認問題-5" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="確認問題-5">確認問題</h2>
+<section id="第1問-2標本t検定に適した項目" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第1問-2標本t検定に適した項目">第1問 （2標本t検定に適した項目）</h3>
+<p>治療A群と治療B群で患者調査を行い、次の項目を測定した。</p>
+<ul>
+<li>体重（kg）</li>
+<li>喫煙の有無（あり／なし）</li>
+<li>性別（男／女）</li>
+<li>がん病期（I、II、III、IV）</li>
+<li>5段階の疼痛スコア（1〜5）</li>
+</ul>
+<p>治療A群と治療B群の2群を比較して「平均の差」を検定したい。 このとき <strong>2標本<img src="https://latex.codecogs.com/png.latex?t">検定が適用しやすい項目</strong> を挙げ、その理由も簡潔に説明しなさい。</p>
+<section id="解答例-25" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-25">解答例</h4>
+<p><strong>適した項目：</strong> 体重（kg）</p>
+<p><strong>理由：</strong> 体重は連続量であり、各群の分布が極端に歪んでいなければ2標本<img src="https://latex.codecogs.com/png.latex?t">検定で平均の差を比較しやすい。</p>
+<p><strong>補足：</strong></p>
+<ul>
+<li>喫煙の有無、性別は二値の名義尺度なので割合の比較が適切であり、<img src="https://latex.codecogs.com/png.latex?t">検定は通常用いない。</li>
+<li>がん病期や5段階疼痛スコアは順序尺度であり、「平均」の差より順位や分布の差として扱う方が自然である。</li>
+</ul>
+</section>
+</section>
+<section id="第2問-ノンパラメトリック検定の選択" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第2問-ノンパラメトリック検定の選択">第2問 （ノンパラメトリック検定の選択）</h3>
+<p>ある連続変数（例：CRP、D-dimer、在院日数など）について2群間比較を行う。ところが、分布が偏っていたり外れ値が多かったりして、平均値だけで評価しにくい可能性がある。</p>
+<p>連続変数の2群比較で、<strong>ノンパラメトリック検定を選ぶのが最もふさわしい状況</strong> を1つ以上挙げ、そのときに候補となる検定名を示しなさい。</p>
+<section id="解答例-26" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-26">解答例</h4>
+<p><strong>候補となる検定：</strong> ウィルコクソン順位和検定（マン・ホイットニーのU検定）</p>
+<p><strong>ふさわしい状況の例：</strong></p>
+<ul>
+<li>分布の歪みが強く、正規性が期待しにくいとき</li>
+<li>外れ値が多いとき</li>
+<li>中央値や順位で比較したいとき</li>
+</ul>
+</section>
+</section>
+<section id="第3問-フィッシャーの直接確率検定で注目するもの" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第3問-フィッシャーの直接確率検定で注目するもの">第3問 （フィッシャーの直接確率検定で注目するもの）</h3>
+<p>2×2分割表（例：「副作用あり／なし」×「治療A群／治療B群」）を作成し、2群の割合の差を検定したい。サンプルサイズが小さく、期待度数が小さいセルが含まれる可能性がある。</p>
+<p>フィッシャーの直接確率検定を用いる場合、<strong>どの量に着目して確率を計算するのか</strong> を説明しなさい。</p>
+<section id="解答例-27" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-27">解答例</h4>
+<p>フィッシャーの直接確率検定では、<strong>周辺度数（各行・各列の合計）を固定したときに、観測された2×2表、またはそれ以上に極端な度数配置が生じる確率</strong> に着目して計算する。</p>
+</section>
+</section>
+<section id="第4問-2群の平均値の比較" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第4問-2群の平均値の比較">第4問 （2群の平均値の比較）</h3>
+<p>脂質異常症患者を対象に、薬剤A群100名、薬剤B群100名をそれぞれ無作為抽出し、LDLコレステロール値（mg/dL）を測定した。2群間でLDLコレステロールの平均に差があるかを調べたい。</p>
+<p>最も適切な解析方法（検定）を答え、その<strong>帰無仮説</strong>と、適用にあたって確認したい<strong>前提</strong>を1つ以上述べなさい。</p>
+<section id="解答例-28" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-28">解答例</h4>
+<p><strong>解析方法：</strong> 独立2群の平均比較なので <strong>2標本<img src="https://latex.codecogs.com/png.latex?t">検定</strong>（実務では Welch の<img src="https://latex.codecogs.com/png.latex?t">検定も用いられる）。</p>
+<p><strong>帰無仮説：</strong> 薬剤A群と薬剤B群の平均LDLコレステロール値は等しい。</p>
+<p><strong>確認したい前提：</strong></p>
+<ul>
+<li>各群の観測が独立であること</li>
+<li>各群の分布が極端に非正規でないこと</li>
+<li>等分散t検定を用いるなら、極端に分散が群間で異なっていないこと</li>
+</ul>
+</section>
+</section>
+<section id="第5問-2群の割合比較" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第5問-2群の割合比較">第5問 （2群の割合比較）</h3>
+<p>住民の健康知識を調べるため、「メタボリックシンドロームを理解しているか（理解している／していない）」を尋ねた。同じ質問が<strong>5年前に別の地域</strong>で実施されており、今回の結果と比較したい。ただし、<strong>5年前と今回で同一人物は含まれていない</strong>ものとする。</p>
+<p><strong>問：</strong> 今回と5年前の「理解している割合」を比較するのに最も適した検定法を答え、その理由を簡潔に説明しなさい。</p>
+<section id="解答例-29" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-29">解答例</h4>
+<p><strong>適した検定法：</strong> カイ二乗検定（2標本比率検定）。小標本ならフィッシャーの直接確率検定。</p>
+<p><strong>理由：</strong> データは二値データであり、比較対象の2群は独立しているため、2×2分割表として割合の差を検討するのが自然である。</p>
+<hr>
+</section>
+</section>
+</section>
+</section>
+<section id="回帰分析" class="level1">
+<h1>回帰分析</h1>
+<section id="確認問題-6" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="確認問題-6">確認問題</h2>
+<section id="第1問解析手法の適切性の判断" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第1問解析手法の適切性の判断">第1問（解析手法の適切性の判断）</h3>
+<p>次の5つの解析計画（A〜E）のうち、<strong>統計解析として不適切なもの</strong>を<strong>1つ</strong>選び、「なぜ不適切か」を<strong>1〜2文</strong>で説明しなさい。</p>
+<ul>
+<li><strong>A</strong>：運動習慣の有無で総コレステロール値に差があるかを調べるため、2標本<img src="https://latex.codecogs.com/png.latex?t">検定を行った。</li>
+<li><strong>B</strong>：収縮期血圧の男女差を調べるため、ロジスティック回帰分析を行った。</li>
+<li><strong>C</strong>：年齢と収縮期血圧の関係を調べるため、単回帰（直線回帰）を行った。</li>
+<li><strong>D</strong>：5段階の疼痛スコアとQOLの関連を調べるため、スペアマンの相関係数を計算した。</li>
+<li><strong>E</strong>：年齢・BMI・腹囲について、すべての組み合わせで相関係数を計算した。</li>
+</ul>
+<section id="解答例-30" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-30">解答例</h4>
+<p><strong>不適切な解析：</strong> B</p>
+<p><strong>理由：</strong> 収縮期血圧は通常 <strong>連続変数</strong> であり、ロジスティック回帰の目的変数としては不適切である。男女差を見たいなら、<img src="https://latex.codecogs.com/png.latex?t">検定や線形回帰分析が適切である。</p>
+</section>
+</section>
+<section id="第2問相関係数の解釈" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第2問相関係数の解釈">第2問（相関係数の解釈）</h3>
+<p>塩分摂取量と収縮期血圧の<strong>相関係数の検定</strong>を行ったところ、結果は<strong>統計学的に有意ではなかった</strong>。 このとき言えること／言えないことを整理し、<strong>適切な解釈</strong>を<strong>2〜3文</strong>で述べなさい。</p>
+<section id="解答例-31" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-31">解答例</h4>
+<p>有意でなかったということは、<strong>標本データから線形な関連があると結論づける十分な証拠が得られなかった</strong>ことを意味する。 しかし、<strong>関係が全くない</strong>と断定することはできない。標本数不足、ばらつきの大きさ、非線形関係の存在などのために、真の関連を検出できなかった可能性がある。</p>
+</section>
+</section>
+<section id="第3問交絡調整と共変量の考え方" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第3問交絡調整と共変量の考え方">第3問（交絡調整と共変量の考え方）</h3>
+<p>群間比較を回帰モデルで行う際に、共変量（年齢、性別、BMIなど）を入れて調整することがある。次の問いに答えなさい。</p>
+<ol type="1">
+<li>共変量を調整する主な目的を1つ述べなさい。</li>
+<li>「共変量の<img src="https://latex.codecogs.com/png.latex?p">値」や「群変数の<img src="https://latex.codecogs.com/png.latex?p">値」の解釈に関して、よくある誤解を1つ挙げ、正しい考え方を1〜2文で説明しなさい。</li>
+</ol>
+<section id="解答例-32" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-32">解答例</h4>
+<ul>
+<li><strong>目的：</strong> 交絡を制御し、群の効果をより公平に比較するため。</li>
+<li><strong>誤解と正しい考え方：</strong> 「共変量のp値が有意でないなら、その変数は調整しなくてよい」という考えは誤りである。交絡調整の必要性はp値だけで決めるのではなく、研究デザインや因果関係の知識に基づいて判断すべきである。</li>
+</ul>
+</section>
+</section>
+<section id="第4問多変数解析の目的" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第4問多変数解析の目的">第4問（多変数解析の目的）</h3>
+<p>多変量解析が必要になる代表的な理由を、<strong>2つ</strong>挙げ、各理由について簡潔に説明しなさい。</p>
+<section id="解答例-33" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-33">解答例</h4>
+<ul>
+<li><strong>理由1：交絡の制御</strong></li>
+<li><strong>理由2：複数の要因を同時に評価するため</strong></li>
+</ul>
+</section>
+</section>
+<section id="第5問ロジスティック回帰とオッズ比の解釈" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第5問ロジスティック回帰とオッズ比の解釈">第5問（ロジスティック回帰とオッズ比の解釈）</h3>
+<p>二値アウトカム（例：発症あり／なし）を目的変数とし、介入の有無（介入あり=1、なし=0）を説明変数に含めたロジスティック回帰分析を行った。 介入の回帰係数を指数変換して得られた<strong>オッズ比（OR）が0.2</strong>であった。</p>
+<ol type="1">
+<li>介入の回帰係数の符号（正／負）を答え、その理由を述べなさい。</li>
+<li>OR=0.2から読み取れる介入効果（方向性）を、<strong>「オッズ」</strong> の言葉を用いて説明しなさい。</li>
+<li>この情報だけで「統計学的に有意」と言えるかどうかも述べなさい。</li>
+</ol>
+<section id="解答例-34" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-34">解答例</h4>
+<ol type="1">
+<li><strong>回帰係数の符号は負。</strong></li>
+<li><strong>解釈：</strong> 介入群の発症オッズは、非介入群の <strong>0.2倍</strong> である。</li>
+<li><strong>この情報だけでは有意とは言えない。</strong> 信頼区間やp値が必要である。</li>
+</ol>
+<hr>
+</section>
+</section>
+</section>
+</section>
+<section id="生存時間解析" class="level1">
+<h1>生存時間解析</h1>
+<section id="確認問題-7" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="確認問題-7">確認問題</h2>
+<section id="第1問-生存時間分析が必要になる理由" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第1問-生存時間分析が必要になる理由">第1問 （生存時間分析が必要になる理由）</h3>
+<p>生存時間分析が扱うデータの特徴を踏まえて、次の2点を説明しなさい。</p>
+<ol type="1">
+<li>生存時間分析が対象とする「アウトカム（目的変数）」はどのようなものか。<strong>具体例を2つ</strong>挙げなさい。</li>
+<li>通常の平均や割合の比較だけでは不十分になりやすい理由を説明しなさい。</li>
+</ol>
+<section id="解答例-35" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-35">解答例</h4>
+<ol type="1">
+<li>生存時間分析のアウトカムは、<strong>ある起点からイベントが起こるまでの時間</strong> である。
+<ul>
+<li>例1：治療開始から死亡までの時間</li>
+<li>例2：手術後から再発までの時間</li>
+</ul></li>
+<li>単純な平均や割合だけでは、<strong>観察期間の違い</strong> や <strong>打ち切り</strong> を十分に扱えない。</li>
+</ol>
+</section>
+</section>
+<section id="第2問-打ち切りの理解" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第2問-打ち切りの理解">第2問 （打ち切りの理解）</h3>
+<p>次の問いに答えなさい。</p>
+<ol type="1">
+<li>「<strong>打ち切り</strong>」とは何か。臨床研究で起こりうる<strong>具体例を2つ</strong>挙げて説明しなさい。
+<ul>
+<li>例1：研究終了時点まで再発していない患者では、研究終了後にいつ再発するかは不明である。</li>
+<li>例2：追跡途中で転院・来院中断となった患者では、その後のイベント発生時点を観察できない。</li>
+</ul></li>
+<li>打ち切りがある研究で、解析上「重要な前提」としてよく言われることは何か。日本語で分かるように説明しなさい。</li>
+<li>もしその前提が破れていると、推定や結論にどんな問題が起こりうるか述べなさい。</li>
+</ol>
+<section id="解答例-36" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-36">解答例</h4>
+<ol type="1">
+<li><strong>打ち切り</strong> とは、「ある時点まではイベントが起きていないことはわかるが、その後いつ起きるかは観察できない」状態である。</li>
+<li>重要な前提は、<strong>打ち切りが予後と独立である</strong> ことである。</li>
+<li>この前提が破れると、生存率やハザード比の推定が偏る可能性がある。</li>
+</ol>
+</section>
+</section>
+<section id="第3問-kaplanmeier曲線の読み取り" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第3問-kaplanmeier曲線の読み取り">第3問 （Kaplan–Meier曲線の読み取り）</h3>
+<p>Kaplan–Meier（KM）曲線について、次を説明しなさい。</p>
+<ol type="1">
+<li>KM曲線の<strong>縦軸</strong>と<strong>横軸</strong>はそれぞれ何を表すか。</li>
+<li>曲線が「<strong>階段状</strong>」になるのはなぜか。</li>
+<li>打ち切り時点ではイベントが起きたわけではないため、生存確率はその時点では低下しない。ただし、それ以降のリスク集合から除かれるため、その後の生存確率の推定に影響する。</li>
+</ol>
+<section id="解答例-37" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-37">解答例</h4>
+<ol type="1">
+<li>縦軸は <strong>生存確率</strong>、横軸は <strong>時間</strong> を表す。</li>
+<li>イベントが起きた時点でだけ生存確率が低下するため、曲線は階段状になる。</li>
+<li>打ち切りは「イベント発生」ではなく、その時点以降のリスク集合から外れることを意味する。</li>
+</ol>
+</section>
+</section>
+<section id="第4問-ハザードとリスクの違い" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第4問-ハザードとリスクの違い">第4問 （ハザードとリスクの違い）</h3>
+<p>次の用語の違いを、例を交えて説明しなさい（数式は不要）。</p>
+<ol type="1">
+<li>「<strong>リスク</strong>（例：1年死亡リスク）」とは何か。</li>
+<li>「<strong>ハザード</strong>（例：ある時点での死亡の起こりやすさ）」とは何か。</li>
+<li>同じ1年死亡リスクでも、ハザードの時間的パターンが異なる場合があり得る。これは臨床的にどのような意味を持つか述べなさい。</li>
+</ol>
+<section id="解答例-38" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-38">解答例</h4>
+<ol type="1">
+<li><strong>リスク</strong> とは、ある一定期間内にイベントが起こる確率である。</li>
+<li><strong>ハザード</strong> とは、ある時点まで生存している人において、その直後にイベントが起こる勢い・起こりやすさを表す概念である。</li>
+<li>同じ1年死亡リスクでも、早期にイベントが集中するか後半に起きるかで臨床的意味は異なる。</li>
+</ol>
+</section>
+</section>
+<section id="第5問-cox比例ハザードモデルの解釈と仮定" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="第5問-cox比例ハザードモデルの解釈と仮定">第5問 （Cox比例ハザードモデルの解釈と仮定）</h3>
+<p>Cox比例ハザードモデルについて、次に答えなさい。</p>
+<ol type="1">
+<li>「<strong>ハザード比（HR）</strong>」とは何か。HR=0.7、HR=1.5はそれぞれ直感的に何を意味するか説明しなさい。</li>
+<li>Coxモデルの重要な仮定である「<strong>比例ハザード性</strong>」とは何かを言葉で説明しなさい。</li>
+<li>比例ハザード性が怪しいと感じたとき、どのような確認方法や対処法があるかを<strong>2つ</strong>挙げなさい。</li>
+</ol>
+<section id="解答例-39" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="解答例-39">解答例</h4>
+<ol type="1">
+<li><strong>ハザード比</strong> とは、2群のハザードの比である。
+<ul>
+<li>HR=0.7：ある群のイベント発生の瞬間的な起こりやすさが、基準群の <strong>0.7倍</strong></li>
+<li>HR=1.5：ある群のイベント発生の瞬間的な起こりやすさが、基準群の <strong>1.5倍</strong></li>
+</ul></li>
+<li><strong>比例ハザード性</strong> とは、時間が経っても2群のハザード比が一定である、という仮定である。</li>
+<li>例：
+<ul>
+<li>確認方法：log-logプロット、Schoenfeld残差による確認。</li>
+<li>対処法：時間依存共変量を入れる、層別Coxモデルを用いる、期間を分けて解析する。</li>
+</ul></li>
+</ol>
 
 
 </section>
@@ -79,7 +1080,7 @@
   <pubDate>Thu, 06 Aug 2026 15:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>Code</title>
+  <title>Post With Code</title>
   <dc:creator>川口淳 </dc:creator>
   <link>https://kawa-a.github.io/medstat/posts/post-with-code/</link>
   <description><![CDATA[ 
@@ -88,6 +1089,19 @@
 
 
 
+<p>This is a post with executable code.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
 
 
 
@@ -97,7 +1111,7 @@
   <category>analysis</category>
   <guid>https://kawa-a.github.io/medstat/posts/post-with-code/</guid>
   <pubDate>Thu, 06 Aug 2026 15:00:00 GMT</pubDate>
-  <media:content url="https://kawa-a.github.io/medstat/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://kawa-a.github.io/medstat/posts/post-with-code/R_logo_2000.png" medium="image" type="image/png" height="109" width="144"/>
 </item>
 <item>
   <title>Welcome To サポートページ</title>
@@ -109,8 +1123,13 @@
 
 
 
-<p>Welcome!</p>
-<p><img src="https://kawa-a.github.io/medstat/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
+<p>『医学データ解析と統計学の架橋』（川口 淳 著）</p>
+<p>本書では、医療統計学の基本的な考え方を、具体例を交えながらわかりやすく学べるように構成しています。</p>
+<p><br></p>
+<p>解析結果の提示例、詳細な計算例、ソフトウェアの出力例をできるだけ対応させて掲載し、それぞれを見比べながら理解を深められるよう工夫しました。</p>
+<p><br></p>
+<p>紙幅の都合上、本書では十分に取り上げられなかった内容もあります。本サポートページでは、それらを補うための資料や追加解説を掲載しています。学習や復習にぜひお役立てください。</p>
+<p><br></p>
 
 
 
