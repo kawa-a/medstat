@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="川口淳">
-<meta name="dcterms.date" content="2026-08-26">
+<meta name="dcterms.date" content="2026-09-03">
 
 <title>R Code – サポートページ</title>
 <style>
@@ -106,6 +106,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -176,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">2026-08-26</p>
+        <p class="date">2026-09-03</p>
       </div>
     </div>
     
@@ -193,6 +222,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#sec-binomial" id="toc-sec-binomial" class="nav-link active" data-scroll-target="#sec-binomial">二値データと二項分布</a></li>
+  <li><a href="#sec-contdata" id="toc-sec-contdata" class="nav-link" data-scroll-target="#sec-contdata">連続データと正規分布</a></li>
+  <li><a href="#sec-cateesttest" id="toc-sec-cateesttest" class="nav-link" data-scroll-target="#sec-cateesttest">割合の推定と検定</a></li>
+  <li><a href="#平均の推定と検定" id="toc-平均の推定と検定" class="nav-link" data-scroll-target="#平均の推定と検定">平均の推定と検定</a></li>
+  <li><a href="#sec-grpcomp" id="toc-sec-grpcomp" class="nav-link" data-scroll-target="#sec-grpcomp">群間比較</a></li>
+  <li><a href="#回帰分析" id="toc-回帰分析" class="nav-link" data-scroll-target="#回帰分析">回帰分析</a></li>
+  <li><a href="#sec-survival" id="toc-sec-survival" class="nav-link" data-scroll-target="#sec-survival">生存時間解析</a></li>
   </ul>
 </nav>
     </div>
@@ -233,6 +268,645 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 5        4     0.67 1369
 6        5     0.83  336
 7        6     1.00   38</code></pre>
+</div>
+</div>
+<p>二項分布の図示</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">dbinom</span>(x, <span class="at">size =</span> <span class="dv">6</span>, <span class="at">prob =</span> <span class="fl">0.5</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">names.arg =</span> x, <span class="at">main =</span> <span class="st">"Bin(6, 0.5)"</span>, <span class="at">xlab =</span> <span class="st">"k"</span>, <span class="at">ylab =</span> <span class="st">"Pr(X = k)"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-contdata" class="level1">
+<h1>連続データと正規分布</h1>
+<p>例3.1：身長データ (70ページ)</p>
+<p><span class="math inline">\(\operatorname{Pr}(Z \leq 0.8)\)</span>を求める．</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">0.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7881446</code></pre>
+</div>
+</div>
+<p><span class="math inline">\(\operatorname{Pr}(Z \leq-1.2)\)</span>を求める．</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1150697</code></pre>
+</div>
+</div>
+<p><span class="math inline">\(\operatorname{Pr}(Z \leq 0.8)-\operatorname{Pr}(Z \leq-1.2)\)</span>を求める．</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">0.8</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">1.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6730749</code></pre>
+</div>
+</div>
+<p>標準化しないで計算する．</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">120</span>, <span class="dv">116</span>, <span class="dv">5</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">110</span>, <span class="dv">116</span>, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6730749</code></pre>
+</div>
+</div>
+</section>
+<section id="sec-cateesttest" class="level1">
+<h1>割合の推定と検定</h1>
+<p>80ページ</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 例：n=10, p=0.5, 観測値 x=1</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>n     <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>p     <span class="ot">&lt;-</span> <span class="fl">0.7</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>x_obs <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># $p$値（片側：X &lt;= x_obs）</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>(p_value <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(x_obs, <span class="at">size =</span> n, <span class="at">prob =</span> p))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04734899</code></pre>
+</div>
+</div>
+<p>84ページ</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 正規近似による$p$値（連続性補正あり）</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> n <span class="sc">*</span> p</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n <span class="sc">*</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>(p_norm <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(x_obs <span class="sc">+</span> <span class="fl">0.5</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma))  <span class="co"># +0.5 は連続性補正</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04224897</code></pre>
+</div>
+</div>
+<p>例4.2：母比率の検定（88ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- 設定 ----</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>x  <span class="ot">&lt;-</span> <span class="dv">45</span>        <span class="co"># 試行回数</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>n  <span class="ot">&lt;-</span> <span class="dv">100</span>         <span class="co"># 各試行の標本数</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- 95%信頼区間----</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(x, n, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    1-sample proportions test without continuity correction
+
+data:  x out of n, null probability 0.5
+X-squared = 1, df = 1, p-value = 0.3173
+alternative hypothesis: true p is not equal to 0.5
+95 percent confidence interval:
+ 0.3561454 0.5475540
+sample estimates:
+   p 
+0.45 </code></pre>
+</div>
+</div>
+</section>
+<section id="平均の推定と検定" class="level1">
+<h1>平均の推定と検定</h1>
+<p>例5.2：血清総コレステロールの平均（103ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">Z =</span> (<span class="dv">204</span> <span class="sc">-</span> <span class="dv">200</span>)<span class="sc">/</span>(<span class="dv">40</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">400</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(Z))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04550026</code></pre>
+</div>
+</div>
+<p>例5.3：コレステロールの例2（131ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mu0 <span class="ot">=</span> <span class="dv">200</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>mu1 <span class="ot">=</span> <span class="dv">210</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">=</span> <span class="dv">40</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>(<span class="at">d =</span> sigma <span class="sc">/</span> (mu1 <span class="sc">-</span> mu0))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">=</span> <span class="fl">0.05</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">=</span> <span class="fl">0.2</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>(<span class="at">zalpha =</span> <span class="fu">qnorm</span>(<span class="dv">1</span><span class="sc">-</span>alpha))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.644854</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">zbeta =</span> <span class="fu">qnorm</span>(beta))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.8416212</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">n =</span> (d <span class="sc">*</span> (zalpha <span class="sc">-</span> zbeta))<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 98.92092</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#切り上げ</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(n)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 99</code></pre>
+</div>
+</div>
+</section>
+<section id="sec-grpcomp" class="level1">
+<h1>群間比較</h1>
+<p>例6.1：2群の血圧変化量の差（142ページ）</p>
+<p>※ 途中計算における四捨五入の影響で数値は完全には一致しません．</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>fname1 <span class="ot">=</span> <span class="st">"../data/2群の血圧変化量の差.xlsx"</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>sheetnames <span class="ot">=</span> readxl<span class="sc">::</span><span class="fu">excel_sheets</span>(fname1)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>(<span class="at">df =</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(fname1, <span class="at">sheet =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 3
+  id    group  delta
+  &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;
+1 I1    介入群    -2
+2 I2    介入群    -6
+3 I3    介入群    -3
+4 I4    介入群    -1
+5 I5    介入群    -5
+6 C1    対照群     2
+7 C2    対照群    -1
+8 C3    対照群     0
+9 C4    対照群    -2</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ===== $t$検定（等分散を仮定） =====</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(delta <span class="sc">~</span> group, <span class="at">data =</span> df, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  delta by group
+t = -2.4388, df = 7, p-value = 0.04483
+alternative hypothesis: true difference in means between group 介入群 and group 対照群 is not equal to 0
+95 percent confidence interval:
+ -6.20413379 -0.09586621
+sample estimates:
+mean in group 介入群 mean in group 対照群 
+               -3.40                -0.25 </code></pre>
+</div>
+</div>
+<p>例6.2：2群の割合の差（151ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>(tb <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">56</span>, <span class="dv">24</span>, <span class="dv">40</span>, <span class="dv">40</span>), <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>, <span class="at">dimnames=</span><span class="fu">list</span>(群<span class="ot">=</span><span class="fu">c</span>(<span class="st">"新規治療群"</span>,<span class="st">"標準治療群"</span>), 転帰<span class="ot">=</span><span class="fu">c</span>(<span class="st">"奏効あり"</span>,<span class="st">"奏効なし"</span>))))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            転帰
+群          奏効あり 奏効なし
+  新規治療群       56       24
+  標準治療群       40       40</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>csm <span class="ot">=</span> <span class="fu">colSums</span>(tb)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>rsm <span class="ot">=</span> <span class="fu">rowSums</span>(tb)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>asm <span class="ot">=</span> <span class="fu">sum</span>(tb)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>prop1 <span class="ot">=</span> <span class="fu">prop.table</span>(tb, <span class="at">margin=</span><span class="dv">1</span>)  <span class="co"># 群ごとの奏効率</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>pdif <span class="ot">=</span> prop1[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">-</span>prop1[<span class="dv">2</span>,<span class="dv">1</span>]</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>r <span class="ot">=</span> csm[<span class="dv">1</span>] <span class="sc">/</span> asm</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>se <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">sqrt</span>(r<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>r)<span class="sc">*</span>(<span class="dv">1</span><span class="sc">/</span>csm[<span class="dv">1</span>]<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>csm[<span class="dv">2</span>])),<span class="dv">2</span>)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">=</span> <span class="fu">round</span>(pdif <span class="sc">/</span> se,<span class="dv">2</span>)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">round</span>(<span class="dv">2</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(Z)),<span class="dv">4</span>)</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>chi <span class="ot">=</span> <span class="fu">round</span>(Z<span class="sc">^</span><span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>pchi <span class="ot">=</span> <span class="fu">round</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pchisq</span>(chi,<span class="dv">1</span>),<span class="dv">4</span>)</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(tb, <span class="at">correct=</span><span class="cn">FALSE</span>)  <span class="co"># カイ二乗検定（Yates補正なし）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  tb
+X-squared = 6.6667, df = 1, p-value = 0.009823</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(tb, <span class="at">correct=</span><span class="cn">TRUE</span>)   <span class="co"># 参考：Yates補正あり</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test with Yates' continuity correction
+
+data:  tb
+X-squared = 5.8594, df = 1, p-value = 0.01549</code></pre>
+</div>
+</div>
+<p>例6.3：2群のHbA1c 値の差（157ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>interv_vals  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.6</span>, <span class="fl">5.7</span>, <span class="fl">5.8</span>, <span class="fl">6.0</span>, <span class="fl">6.0</span>)  </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>control_vals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.9</span>, <span class="fl">6.1</span>, <span class="fl">6.2</span>, <span class="fl">6.3</span>, <span class="fl">6.5</span>, <span class="fl">10.0</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>m<span class="ot">=</span><span class="fu">length</span>(interv_vals); n<span class="ot">=</span><span class="fu">length</span>(control_vals); N<span class="ot">=</span>m<span class="sc">+</span>n</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>m1<span class="ot">=</span>m<span class="sc">*</span>(N<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span><span class="dv">2</span>; s1<span class="ot">=</span><span class="fu">sqrt</span>(m<span class="sc">*</span>n<span class="sc">*</span>(N<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span><span class="dv">12</span>)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>(<span class="at">z=</span>(<span class="dv">17-30</span>)<span class="sc">/</span><span class="fl">5.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -2.363636</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">p=</span><span class="dv">2</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fu">abs</span>(<span class="fu">round</span>(z,<span class="dv">2</span>)))))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01827494</code></pre>
+</div>
+</div>
+</section>
+<section id="回帰分析" class="level1">
+<h1>回帰分析</h1>
+<p>例7.1：国語と英語の点数（184ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>国語 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>英語 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">7</span>)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>lmfit <span class="ot">=</span> <span class="fu">lm</span>(英語<span class="sc">~</span>国語)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lmfit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = 英語 ~ 国語)
+
+Residuals:
+      1       2       3       4 
+ 0.2533  2.1600 -3.3867  0.9733 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)   2.2000     2.9280   0.751    0.531
+国語          0.5467     0.6762   0.808    0.504
+
+Residual standard error: 2.928 on 2 degrees of freedom
+Multiple R-squared:  0.2463,    Adjusted R-squared:  -0.1305 
+F-statistic: 0.6536 on 1 and 2 DF,  p-value: 0.5037</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(英語<span class="sc">~</span>国語, <span class="at">xlab =</span> <span class="st">"国語"</span>, <span class="at">ylab =</span> <span class="st">"英語"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(lmfit, <span class="at">col=</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>例7.2：BMI の性差（206ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 仮のデータ作成</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>gender <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"男性"</span>, <span class="st">"女性"</span>), <span class="at">each =</span> <span class="dv">50</span>), <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"男性"</span>, <span class="st">"女性"</span>))</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>bmi <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">24</span>, <span class="at">sd =</span> <span class="dv">2</span>), <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">22</span>, <span class="at">sd =</span> <span class="dv">2</span>)),<span class="dv">1</span>)</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(gender, bmi)</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>gender_code <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(data<span class="sc">$</span>gender <span class="sc">==</span> <span class="st">"男性"</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 回帰モデル</span></span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(data<span class="sc">$</span>bmi <span class="sc">~</span> gender_code)</span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 左：散布図＋回帰直線（横軸に0,1を表示）</span></span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gender_code, data<span class="sc">$</span>bmi, <span class="at">xlab =</span> <span class="st">"性別（ダミー変数）"</span>, <span class="at">ylab =</span> <span class="st">"BMI"</span>, <span class="at">main =</span> <span class="st">"散布図と回帰直線"</span>,</span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxt =</span> <span class="st">"n"</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"0 (=男性)"</span>, <span class="st">"1 (=女性)"</span>))  <span class="co"># 0,1を明示</span></span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(model, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 右：箱ひげ図（女性を左、男性を右）</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(data<span class="sc">$</span>bmi <span class="sc">~</span> data<span class="sc">$</span>gender, <span class="at">xlab =</span> <span class="st">"性別"</span>, <span class="at">ylab =</span> <span class="st">"BMI"</span>, <span class="at">main =</span> <span class="st">"性別によるBMIの分布"</span>,</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"pink"</span>, <span class="st">"lightblue"</span>),</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">at =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)[<span class="fu">order</span>(<span class="fu">levels</span>(gender), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)])  <span class="co"># 順序逆転</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-16-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t検定による群間比較</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(bmi <span class="sc">~</span> gender, <span class="at">data =</span> data, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  bmi by gender
+t = 4.8528, df = 98, p-value = 4.594e-06
+alternative hypothesis: true difference in means between group 男性 and group 女性 is not equal to 0
+95 percent confidence interval:
+ 1.049736 2.502264
+sample estimates:
+mean in group 男性 mean in group 女性 
+            24.068             22.292 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 回帰分析（男性を基準）</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(bmi <span class="sc">~</span> gender, <span class="at">data =</span> data)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = bmi ~ gender, data = data)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-4.892 -1.168 -0.130  1.332  4.232 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  24.0680     0.2588  93.005  &lt; 2e-16 ***
+gender女性   -1.7760     0.3660  -4.853 4.59e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.83 on 98 degrees of freedom
+Multiple R-squared:  0.1937,    Adjusted R-squared:  0.1855 
+F-statistic: 23.55 on 1 and 98 DF,  p-value: 4.594e-06</code></pre>
+</div>
+</div>
+<p>例7.3：血圧の変化量の群間差</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>fname1 <span class="ot">=</span> <span class="st">"../data/回帰分析例データ.xlsx"</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">=</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(fname1, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 平均差（試験群 − 対照群）と t検定</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="st">`</span><span class="at">血圧変化量</span><span class="st">`</span> <span class="sc">~</span> 群, <span class="at">data =</span> dat, <span class="at">var.equal=</span><span class="cn">TRUE</span>)  <span class="co"># t検定</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  血圧変化量 by 群
+t = -0.3356, df = 18, p-value = 0.7411
+alternative hypothesis: true difference in means between group 試験群 and group 対照群 is not equal to 0
+95 percent confidence interval:
+ -7.986197  5.786197
+sample estimates:
+mean in group 試験群 mean in group 対照群 
+               -15.1                -14.0 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(<span class="st">`</span><span class="at">血圧変化量</span><span class="st">`</span> <span class="sc">~</span> 群, <span class="at">data =</span> dat))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = 血圧変化量 ~ 群, data = dat)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-10.900  -4.000  -0.900   2.775  14.000 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -15.100      2.318  -6.515 3.99e-06 ***
+群対照群       1.100      3.278   0.336    0.741    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.329 on 18 degrees of freedom
+Multiple R-squared:  0.006218,  Adjusted R-squared:  -0.04899 
+F-statistic: 0.1126 on 1 and 18 DF,  p-value: 0.7411</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ==== モデル設定（交互作用なし：平行な2本の回帰線） ====</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="st">`</span><span class="at">血圧変化量</span><span class="st">`</span> <span class="sc">~</span> 年齢 <span class="sc">+</span> 群, <span class="at">data =</span> dat)</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = 血圧変化量 ~ 年齢 + 群, data = dat)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.9797 -1.7784 -0.4507  1.8272  3.8150 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -50.18002    2.97968 -16.841 4.87e-12 ***
+年齢          0.57888    0.04752  12.181 8.00e-10 ***
+群対照群      3.53129    1.09962   3.211  0.00512 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.418 on 17 degrees of freedom
+Multiple R-squared:  0.8978,    Adjusted R-squared:  0.8858 
+F-statistic: 74.71 on 2 and 17 DF,  p-value: 3.791e-09</code></pre>
+</div>
+</div>
+<p>例7.4：有効率の群間差（225ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2×2分割表データ（集計形式）　0=対照群, 1=新規群</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(群   <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), 有効 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">45</span>), 無効 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">70</span>, <span class="dv">55</span>))</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 分割表の確認</span></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>  新規群 <span class="ot">=</span> <span class="fu">c</span>(有効 <span class="ot">=</span> df<span class="sc">$</span>有効[df<span class="sc">$</span>群<span class="sc">==</span><span class="dv">1</span>], 無効 <span class="ot">=</span> df<span class="sc">$</span>無効[df<span class="sc">$</span>群<span class="sc">==</span><span class="dv">1</span>]),</span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>  対照群 <span class="ot">=</span> <span class="fu">c</span>(有効 <span class="ot">=</span> df<span class="sc">$</span>有効[df<span class="sc">$</span>群<span class="sc">==</span><span class="dv">0</span>], 無効 <span class="ot">=</span> df<span class="sc">$</span>無効[df<span class="sc">$</span>群<span class="sc">==</span><span class="dv">0</span>])</span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>tab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       有効 無効
+新規群   45   55
+対照群   30   70</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 粗オッズ比の手計算</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>odds1 <span class="ot">&lt;-</span> df<span class="sc">$</span>有効[df<span class="sc">$</span>群<span class="sc">==</span><span class="dv">1</span>] <span class="sc">/</span> df<span class="sc">$</span>無効[df<span class="sc">$</span>群<span class="sc">==</span><span class="dv">1</span>]</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>odds0 <span class="ot">&lt;-</span> df<span class="sc">$</span>有効[df<span class="sc">$</span>群<span class="sc">==</span><span class="dv">0</span>] <span class="sc">/</span> df<span class="sc">$</span>無効[df<span class="sc">$</span>群<span class="sc">==</span><span class="dv">0</span>]</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>(OR_crude <span class="ot">&lt;-</span> odds1 <span class="sc">/</span> odds0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.909091</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ロジスティック回帰（集計二項データ）：cbind(成功, 失敗)</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="fu">cbind</span>(有効, 無効) <span class="sc">~</span> 群, <span class="at">family =</span> binomial, <span class="at">data =</span> df)</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = cbind(有効, 無効) ~ 群, family = binomial, 
+    data = df)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  -0.8473     0.2182  -3.883 0.000103 ***
+群            0.6466     0.2967   2.179 0.029295 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 4.8247e+00  on 1  degrees of freedom
+Residual deviance: 1.4433e-14  on 0  degrees of freedom
+AIC: 13.94
+
+Number of Fisher Scoring iterations: 3</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(fit)       <span class="co"># a（切片）, b（群の係数）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)          群 
+ -0.8472979   0.6466272 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(fit))  <span class="co"># e^a（対照群のオッズ）, e^b（オッズ比）</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)          群 
+  0.4285714   1.9090909 </code></pre>
+</div>
+</div>
+<p>例7.5：重症度を考慮する合併症の群間差（234ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(dat<span class="sc">$</span>Y, dat<span class="sc">$</span>X)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+      0   1
+  0 283 232
+  1  50  35</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>m_crude <span class="ot">&lt;-</span> <span class="fu">glm</span>(Y <span class="sc">~</span> X, <span class="at">data=</span>dat, <span class="at">family=</span><span class="fu">binomial</span>())</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_crude)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Y ~ X, family = binomial(), data = dat)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  -1.7334     0.1534 -11.300   &lt;2e-16 ***
+X            -0.1580     0.2375  -0.665    0.506    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 489.57  on 599  degrees of freedom
+Residual deviance: 489.13  on 598  degrees of freedom
+AIC: 493.13
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(dat[dat<span class="sc">$</span>Z<span class="sc">==</span><span class="dv">0</span>, <span class="st">"Y"</span>], dat[dat<span class="sc">$</span>Z<span class="sc">==</span><span class="dv">0</span>, <span class="st">"X"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+      0   1
+  0 248  76
+  1  29   4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(dat[dat<span class="sc">$</span>Z<span class="sc">==</span><span class="dv">1</span>, <span class="st">"Y"</span>], dat[dat<span class="sc">$</span>Z<span class="sc">==</span><span class="dv">1</span>, <span class="st">"X"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+      0   1
+  0  35 156
+  1  21  31</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>m_adj   <span class="ot">&lt;-</span> <span class="fu">glm</span>(Y <span class="sc">~</span> X <span class="sc">+</span> Z, <span class="at">data=</span>dat, <span class="at">family=</span><span class="fu">binomial</span>())</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m_adj)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Y ~ X + Z, family = binomial(), data = dat)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  -2.1196     0.1862 -11.382  &lt; 2e-16 ***
+X            -1.0250     0.2948  -3.477 0.000507 ***
+Z             1.5554     0.2946   5.280 1.29e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 489.57  on 599  degrees of freedom
+Residual deviance: 459.79  on 597  degrees of freedom
+AIC: 465.79
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+</section>
+<section id="sec-survival" class="level1">
+<h1>生存時間解析</h1>
+<p>例8.2：2 群の生存時間データ（253ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survminer)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggplot2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggpubr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'survminer'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:survival':
+
+    myeloma</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsurvfit)</span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>fname1 <span class="ot">=</span> <span class="st">"../data/生存時間例データ.xlsx"</span></span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>survdata <span class="ot">=</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(fname1, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
+<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 群別KM</span></span>
+<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a>(fit2 <span class="ot">&lt;-</span> <span class="fu">survfit2</span>(<span class="fu">Surv</span>(生存時間, 打ち切り) <span class="sc">~</span> 群, <span class="at">data =</span> survdata))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call: survfit(formula = Surv(生存時間, 打ち切り) ~ 群, data = survdata)
+
+        n events median 0.95LCL 0.95UCL
+群=試験 5      3     76      30      NA
+群=対照 4      3     15       8      NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ログランク検定</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>(lr  <span class="ot">&lt;-</span> <span class="fu">survdiff</span>(<span class="fu">Surv</span>(生存時間, 打ち切り) <span class="sc">~</span> 群, <span class="at">data =</span> survdata))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+survdiff(formula = Surv(生存時間, 打ち切り) ~ 群, data = survdata)
+
+        N Observed Expected (O-E)^2/E (O-E)^2/V
+群=試験 5        3     4.74     0.637      3.62
+群=対照 4        3     1.26     2.387      3.62
+
+ Chisq= 3.6  on 1 degrees of freedom, p= 0.06 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># コンパクトなKM図</span></span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">ggsurvfit</span>(fit2) <span class="sc">+</span> <span class="fu">add_risktable</span>() <span class="sc">+</span> <span class="fu">add_censor_mark</span>() <span class="sc">+</span> <span class="fu">add_pvalue</span>(<span class="at">caption =</span> <span class="st">"Log-rank {p.value}"</span>)</span>
+<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>例8.3：多変量の生存時間データ（265ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 全体ログランク</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">survdiff</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> 治療群, <span class="at">data =</span> dat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+survdiff(formula = Surv(time, status) ~ 治療群, data = dat)
+
+             N Observed Expected (O-E)^2/E (O-E)^2/V
+治療群=試験 59       49     57.8      1.35      3.47
+治療群=対照 61       57     48.2      1.63      3.47
+
+ Chisq= 3.5  on 1 degrees of freedom, p= 0.06 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cox（調整あり）</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> 治療群 <span class="sc">+</span> 年齢 <span class="sc">+</span> 遺伝子, <span class="at">data =</span> dat)</span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+coxph(formula = Surv(time, status) ~ 治療群 + 年齢 + 遺伝子, 
+    data = dat)
+
+  n= 120, number of events= 106 
+
+              coef exp(coef) se(coef)     z Pr(&gt;|z|)    
+治療群対照 1.33997   3.81891  0.25173 5.323 1.02e-07 ***
+年齢       0.02281   1.02307  0.01385 1.647   0.0996 .  
+遺伝子陽性 1.89450   6.64921  0.26349 7.190 6.48e-13 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+           exp(coef) exp(-coef) lower .95 upper .95
+治療群対照     3.819     0.2619    2.3317     6.255
+年齢           1.023     0.9775    0.9957     1.051
+遺伝子陽性     6.649     0.1504    3.9672    11.144
+
+Concordance= 0.71  (se = 0.032 )
+Likelihood ratio test= 57.24  on 3 df,   p=2e-12
+Wald test            = 54.06  on 3 df,   p=1e-11
+Score (logrank) test = 55.44  on 3 df,   p=6e-12</code></pre>
 </div>
 </div>
 

@@ -10,7 +10,7 @@
 <atom:link href="https://kawa-a.github.io/medstat/index.xml" rel="self" type="application/rss+xml"/>
 <description>サポートページ</description>
 <generator>quarto-1.8.25</generator>
-<lastBuildDate>Tue, 25 Aug 2026 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 02 Sep 2026 15:00:00 GMT</lastBuildDate>
 <item>
   <title>演習問題のデータ</title>
   <dc:creator>川口淳 </dc:creator>
@@ -59,7 +59,7 @@
   <category>code</category>
   <category>analysis</category>
   <guid>https://kawa-a.github.io/medstat/posts/data/</guid>
-  <pubDate>Tue, 25 Aug 2026 15:00:00 GMT</pubDate>
+  <pubDate>Wed, 02 Sep 2026 15:00:00 GMT</pubDate>
 </item>
 <item>
   <title>演習問題の解答例</title>
@@ -580,7 +580,7 @@
   <category>code</category>
   <category>analysis</category>
   <guid>https://kawa-a.github.io/medstat/posts/exercise/</guid>
-  <pubDate>Tue, 25 Aug 2026 15:00:00 GMT</pubDate>
+  <pubDate>Wed, 02 Sep 2026 15:00:00 GMT</pubDate>
 </item>
 <item>
   <title>R Code</title>
@@ -706,6 +706,1875 @@ font-style: inherit;">FALSE</span></span>
 7        6     1.00   38</code></pre>
 </div>
 </div>
+<p>二項分布の図示</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span></span>
+<span id="cb3-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">barplot</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dbinom</span>(x, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prob =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>),</span>
+<span id="cb3-3">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">names.arg =</span> x, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Bin(6, 0.5)"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"k"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Pr(X = k)"</span></span>
+<span id="cb3-4">)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://kawa-a.github.io/medstat/posts/post-with-code/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-contdata" class="level1">
+<h1>連続データと正規分布</h1>
+<p>例3.1：身長データ (70ページ)</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BPr%7D(Z%20%5Cleq%200.8)">を求める．</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.8</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7881446</code></pre>
+</div>
+</div>
+<p><img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BPr%7D(Z%20%5Cleq-1.2)">を求める．</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.2</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1150697</code></pre>
+</div>
+</div>
+<p><img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BPr%7D(Z%20%5Cleq%200.8)-%5Coperatorname%7BPr%7D(Z%20%5Cleq-1.2)">を求める．</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.8</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.2</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6730749</code></pre>
+</div>
+</div>
+<p>標準化しないで計算する．</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">120</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">116</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">110</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">116</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6730749</code></pre>
+</div>
+</div>
+</section>
+<section id="sec-cateesttest" class="level1">
+<h1>割合の推定と検定</h1>
+<p>80ページ</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 例：n=10, p=0.5, 観測値 x=1</span></span>
+<span id="cb12-2">n     <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span></span>
+<span id="cb12-3">p     <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.7</span></span>
+<span id="cb12-4">x_obs <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span></span>
+<span id="cb12-5"></span>
+<span id="cb12-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># $p$値（片側：X &lt;= x_obs）</span></span>
+<span id="cb12-7">(p_value <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pbinom</span>(x_obs, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prob =</span> p))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04734899</code></pre>
+</div>
+</div>
+<p>84ページ</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 正規近似による$p$値（連続性補正あり）</span></span>
+<span id="cb14-2">mu <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> n <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> p</span>
+<span id="cb14-3">sigma <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(n <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> p <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> p))</span>
+<span id="cb14-4">(p_norm <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(x_obs <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> mu, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> sigma))  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># +0.5 は連続性補正</span></span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04224897</code></pre>
+</div>
+</div>
+<p>例4.2：母比率の検定（88ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ---- 設定 ----</span></span>
+<span id="cb16-2">x  <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">45</span>        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 試行回数</span></span>
+<span id="cb16-3">n  <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>         <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 各試行の標本数</span></span>
+<span id="cb16-4"></span>
+<span id="cb16-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ---- 95%信頼区間----</span></span>
+<span id="cb16-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">prop.test</span>(x, n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">conf.level =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.95</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">correct =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    1-sample proportions test without continuity correction
+
+data:  x out of n, null probability 0.5
+X-squared = 1, df = 1, p-value = 0.3173
+alternative hypothesis: true p is not equal to 0.5
+95 percent confidence interval:
+ 0.3561454 0.5475540
+sample estimates:
+   p 
+0.45 </code></pre>
+</div>
+</div>
+</section>
+<section id="平均の推定と検定" class="level1">
+<h1>平均の推定と検定</h1>
+<p>例5.2：血清総コレステロールの平均（103ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Z =</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">204</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">40</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">400</span>)))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(Z))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04550026</code></pre>
+</div>
+</div>
+<p>例5.3：コレステロールの例2（131ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">mu0 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span></span>
+<span id="cb22-2">mu1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">210</span></span>
+<span id="cb22-3">sigma <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">40</span></span>
+<span id="cb22-4"></span>
+<span id="cb22-5">(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">d =</span> sigma <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> (mu1 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> mu0))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1">alpha <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span></span>
+<span id="cb24-2">beta <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span></span>
+<span id="cb24-3">(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">zalpha =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">qnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>alpha))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.644854</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1">(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">zbeta =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">qnorm</span>(beta))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.8416212</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n =</span> (d <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (zalpha <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> zbeta))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 98.92092</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#切り上げ</span></span>
+<span id="cb30-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ceiling</span>(n)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 99</code></pre>
+</div>
+</div>
+</section>
+<section id="sec-grpcomp" class="level1">
+<h1>群間比較</h1>
+<p>例6.1：2群の血圧変化量の差（142ページ）</p>
+<p>※ 途中計算における四捨五入の影響で数値は完全には一致しません．</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1">fname1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"../data/2群の血圧変化量の差.xlsx"</span></span>
+<span id="cb32-2">sheetnames <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> readxl<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">excel_sheets</span>(fname1)</span>
+<span id="cb32-3">(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">df =</span> readxl<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_xlsx</span>(fname1, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sheet =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 3
+  id    group  delta
+  &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;
+1 I1    介入群    -2
+2 I2    介入群    -6
+3 I3    介入群    -3
+4 I4    介入群    -1
+5 I5    介入群    -5
+6 C1    対照群     2
+7 C2    対照群    -1
+8 C3    対照群     0
+9 C4    対照群    -2</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ===== $t$検定（等分散を仮定） =====</span></span>
+<span id="cb34-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">t.test</span>(delta <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> group, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> df, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">var.equal =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  delta by group
+t = -2.4388, df = 7, p-value = 0.04483
+alternative hypothesis: true difference in means between group 介入群 and group 対照群 is not equal to 0
+95 percent confidence interval:
+ -6.20413379 -0.09586621
+sample estimates:
+mean in group 介入群 mean in group 対照群 
+               -3.40                -0.25 </code></pre>
+</div>
+</div>
+<p>例6.2：2群の割合の差（151ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1">(tb <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">matrix</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">56</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">40</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">40</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">nrow=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">byrow=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">dimnames=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(群<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"新規治療群"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"標準治療群"</span>), 転帰<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"奏効あり"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"奏効なし"</span>))))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            転帰
+群          奏効あり 奏効なし
+  新規治療群       56       24
+  標準治療群       40       40</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1">csm <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colSums</span>(tb)</span>
+<span id="cb38-2">rsm <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rowSums</span>(tb)</span>
+<span id="cb38-3">asm <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(tb)</span>
+<span id="cb38-4">prop1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">prop.table</span>(tb, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">margin=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 群ごとの奏効率</span></span>
+<span id="cb38-5">pdif <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> prop1[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>prop1[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]</span>
+<span id="cb38-6">r <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> csm[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> asm</span>
+<span id="cb38-7">se <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(r<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>r)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>csm[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>csm[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>])),<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb38-8">Z <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(pdif <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> se,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb38-9">p <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(Z)),<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)</span>
+<span id="cb38-10">chi <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(Z<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb38-11">pchi <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pchisq</span>(chi,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>),<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)</span>
+<span id="cb38-12"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">chisq.test</span>(tb, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">correct=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># カイ二乗検定（Yates補正なし）</span></span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  tb
+X-squared = 6.6667, df = 1, p-value = 0.009823</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">chisq.test</span>(tb, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">correct=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 参考：Yates補正あり</span></span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test with Yates' continuity correction
+
+data:  tb
+X-squared = 5.8594, df = 1, p-value = 0.01549</code></pre>
+</div>
+</div>
+<p>例6.3：2群のHbA1c 値の差（157ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1">interv_vals  <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.6</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.7</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.8</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.0</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.0</span>)  </span>
+<span id="cb42-2">control_vals <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.9</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.1</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.2</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10.0</span>)</span>
+<span id="cb42-3"></span>
+<span id="cb42-4">m<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(interv_vals); n<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(control_vals); N<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span>m<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>n</span>
+<span id="cb42-5">m1<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span>m<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>(N<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>; s1<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(m<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>n<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>(N<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>)</span>
+<span id="cb42-6">(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">z=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">17-30</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.5</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -2.363636</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1">(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">p=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pnorm</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">abs</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(z,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)))))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01827494</code></pre>
+</div>
+</div>
+</section>
+<section id="回帰分析" class="level1">
+<h1>回帰分析</h1>
+<p>例7.1：国語と英語の点数（184ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1">国語 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>)</span>
+<span id="cb46-2">英語 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>)</span>
+<span id="cb46-3"></span>
+<span id="cb46-4">lmfit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lm</span>(英語<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>国語)</span>
+<span id="cb46-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(lmfit)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = 英語 ~ 国語)
+
+Residuals:
+      1       2       3       4 
+ 0.2533  2.1600 -3.3867  0.9733 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)   2.2000     2.9280   0.751    0.531
+国語          0.5467     0.6762   0.808    0.504
+
+Residual standard error: 2.928 on 2 degrees of freedom
+Multiple R-squared:  0.2463,    Adjusted R-squared:  -0.1305 
+F-statistic: 0.6536 on 1 and 2 DF,  p-value: 0.5037</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(英語<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>国語, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"国語"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"英語"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pch =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">19</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"steelblue"</span>)</span>
+<span id="cb48-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">abline</span>(lmfit, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://kawa-a.github.io/medstat/posts/post-with-code/index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>例7.2：BMI の性差（206ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 仮のデータ作成</span></span>
+<span id="cb49-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set.seed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">123</span>)</span>
+<span id="cb49-3">gender <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"男性"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"女性"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">levels=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"男性"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"女性"</span>))</span>
+<span id="cb49-4">bmi <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">round</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)),<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb49-5">data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(gender, bmi)</span>
+<span id="cb49-6"></span>
+<span id="cb49-7">gender_code <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>gender <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"男性"</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb49-8"></span>
+<span id="cb49-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 回帰モデル</span></span>
+<span id="cb49-10">model <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lm</span>(data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>bmi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> gender_code)</span>
+<span id="cb49-11"></span>
+<span id="cb49-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 左：散布図＋回帰直線（横軸に0,1を表示）</span></span>
+<span id="cb49-13"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(gender_code, data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>bmi, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"性別（ダミー変数）"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"BMI"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"散布図と回帰直線"</span>,</span>
+<span id="cb49-14">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xaxt =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"n"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pch =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">19</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blue"</span>)</span>
+<span id="cb49-15"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">axis</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">at =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0 (=男性)"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1 (=女性)"</span>))  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 0,1を明示</span></span>
+<span id="cb49-16"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">abline</span>(model, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lwd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://kawa-a.github.io/medstat/posts/post-with-code/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 右：箱ひげ図（女性を左、男性を右）</span></span>
+<span id="cb50-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">boxplot</span>(data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>bmi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>gender, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"性別"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"BMI"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"性別によるBMIの分布"</span>,</span>
+<span id="cb50-3">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"pink"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"lightblue"</span>),</span>
+<span id="cb50-4">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">at =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">order</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">levels</span>(gender), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">decreasing =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)])  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 順序逆転</span></span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://kawa-a.github.io/medstat/posts/post-with-code/index_files/figure-html/unnamed-chunk-16-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># t検定による群間比較</span></span>
+<span id="cb51-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">t.test</span>(bmi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> gender, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> data, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">var.equal =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  bmi by gender
+t = 4.8528, df = 98, p-value = 4.594e-06
+alternative hypothesis: true difference in means between group 男性 and group 女性 is not equal to 0
+95 percent confidence interval:
+ 1.049736 2.502264
+sample estimates:
+mean in group 男性 mean in group 女性 
+            24.068             22.292 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 回帰分析（男性を基準）</span></span>
+<span id="cb53-2">fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lm</span>(bmi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> gender, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> data)</span>
+<span id="cb53-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(fit)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = bmi ~ gender, data = data)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-4.892 -1.168 -0.130  1.332  4.232 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  24.0680     0.2588  93.005  &lt; 2e-16 ***
+gender女性   -1.7760     0.3660  -4.853 4.59e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.83 on 98 degrees of freedom
+Multiple R-squared:  0.1937,    Adjusted R-squared:  0.1855 
+F-statistic: 23.55 on 1 and 98 DF,  p-value: 4.594e-06</code></pre>
+</div>
+</div>
+<p>例7.3：血圧の変化量の群間差</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1">fname1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"../data/回帰分析例データ.xlsx"</span></span>
+<span id="cb55-2">dat <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> readxl<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_xlsx</span>(fname1, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sheet =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb55-3"></span>
+<span id="cb55-4"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## 平均差（試験群 − 対照群）と t検定</span></span>
+<span id="cb55-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">t.test</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">血圧変化量</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> 群, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> dat, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">var.equal=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># t検定</span></span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  血圧変化量 by 群
+t = -0.3356, df = 18, p-value = 0.7411
+alternative hypothesis: true difference in means between group 試験群 and group 対照群 is not equal to 0
+95 percent confidence interval:
+ -7.986197  5.786197
+sample estimates:
+mean in group 試験群 mean in group 対照群 
+               -15.1                -14.0 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lm</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">血圧変化量</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> 群, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> dat))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = 血圧変化量 ~ 群, data = dat)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-10.900  -4.000  -0.900   2.775  14.000 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -15.100      2.318  -6.515 3.99e-06 ***
+群対照群       1.100      3.278   0.336    0.741    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.329 on 18 degrees of freedom
+Multiple R-squared:  0.006218,  Adjusted R-squared:  -0.04899 
+F-statistic: 0.1126 on 1 and 18 DF,  p-value: 0.7411</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><span class="do" style="color: #5E5E5E;
+background-color: null;
+font-style: italic;">## ==== モデル設定（交互作用なし：平行な2本の回帰線） ====</span></span>
+<span id="cb59-2">fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lm</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">血圧変化量</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> 年齢 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 群, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> dat)</span>
+<span id="cb59-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(fit)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = 血圧変化量 ~ 年齢 + 群, data = dat)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.9797 -1.7784 -0.4507  1.8272  3.8150 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -50.18002    2.97968 -16.841 4.87e-12 ***
+年齢          0.57888    0.04752  12.181 8.00e-10 ***
+群対照群      3.53129    1.09962   3.211  0.00512 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.418 on 17 degrees of freedom
+Multiple R-squared:  0.8978,    Adjusted R-squared:  0.8858 
+F-statistic: 74.71 on 2 and 17 DF,  p-value: 3.791e-09</code></pre>
+</div>
+</div>
+<p>例7.4：有効率の群間差（225ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 2×2分割表データ（集計形式）　0=対照群, 1=新規群</span></span>
+<span id="cb61-2">df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(群   <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>), 有効 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">45</span>), 無効 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">70</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">55</span>))</span>
+<span id="cb61-3"></span>
+<span id="cb61-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 分割表の確認</span></span>
+<span id="cb61-5">tab <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbind</span>(</span>
+<span id="cb61-6">  新規群 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(有効 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>有効[df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>群<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], 無効 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>無効[df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>群<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]),</span>
+<span id="cb61-7">  対照群 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(有効 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>有効[df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>群<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>], 無効 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>無効[df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>群<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>])</span>
+<span id="cb61-8">)</span>
+<span id="cb61-9">tab</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       有効 無効
+新規群   45   55
+対照群   30   70</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 粗オッズ比の手計算</span></span>
+<span id="cb63-2">odds1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>有効[df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>群<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>無効[df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>群<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]</span>
+<span id="cb63-3">odds0 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>有効[df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>群<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>無効[df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>群<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>]</span>
+<span id="cb63-4">(OR_crude <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> odds1 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> odds0)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.909091</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ロジスティック回帰（集計二項データ）：cbind(成功, 失敗)</span></span>
+<span id="cb65-2">fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">glm</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cbind</span>(有効, 無効) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> 群, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">family =</span> binomial, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> df)</span>
+<span id="cb65-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(fit)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = cbind(有効, 無効) ~ 群, family = binomial, 
+    data = df)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  -0.8473     0.2182  -3.883 0.000103 ***
+群            0.6466     0.2967   2.179 0.029295 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 4.8247e+00  on 1  degrees of freedom
+Residual deviance: 1.4433e-14  on 0  degrees of freedom
+AIC: 13.94
+
+Number of Fisher Scoring iterations: 3</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coef</span>(fit)       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># a（切片）, b（群の係数）</span></span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)          群 
+ -0.8472979   0.6466272 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">exp</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coef</span>(fit))  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># e^a（対照群のオッズ）, e^b（オッズ比）</span></span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)          群 
+  0.4285714   1.9090909 </code></pre>
+</div>
+</div>
+<p>例7.5：重症度を考慮する合併症の群間差（234ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(dat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Y, dat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>X)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+      0   1
+  0 283 232
+  1  50  35</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1">m_crude <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">glm</span>(Y <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> X, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data=</span>dat, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">family=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">binomial</span>())</span>
+<span id="cb73-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(m_crude)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Y ~ X, family = binomial(), data = dat)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  -1.7334     0.1534 -11.300   &lt;2e-16 ***
+X            -0.1580     0.2375  -0.665    0.506    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 489.57  on 599  degrees of freedom
+Residual deviance: 489.13  on 598  degrees of freedom
+AIC: 493.13
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(dat[dat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Z<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Y"</span>], dat[dat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Z<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"X"</span>])</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+      0   1
+  0 248  76
+  1  29   4</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">table</span>(dat[dat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Z<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Y"</span>], dat[dat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Z<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"X"</span>])</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+      0   1
+  0  35 156
+  1  21  31</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1">m_adj   <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">glm</span>(Y <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> X <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> Z, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data=</span>dat, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">family=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">binomial</span>())</span>
+<span id="cb79-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(m_adj)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Y ~ X + Z, family = binomial(), data = dat)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  -2.1196     0.1862 -11.382  &lt; 2e-16 ***
+X            -1.0250     0.2948  -3.477 0.000507 ***
+Z             1.5554     0.2946   5.280 1.29e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 489.57  on 599  degrees of freedom
+Residual deviance: 459.79  on 597  degrees of freedom
+AIC: 465.79
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+</section>
+<section id="sec-survival" class="level1">
+<h1>生存時間解析</h1>
+<p>例8.2：2 群の生存時間データ（253ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(survival)</span>
+<span id="cb81-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(survminer)</span></code></pre></div></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggplot2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggpubr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'survminer'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:survival':
+
+    myeloma</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb86" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggsurvfit)</span>
+<span id="cb86-2"></span>
+<span id="cb86-3">fname1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"../data/生存時間例データ.xlsx"</span></span>
+<span id="cb86-4">survdata <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> readxl<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_xlsx</span>(fname1, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sheet =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb86-5"></span>
+<span id="cb86-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 群別KM</span></span>
+<span id="cb86-7">(fit2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">survfit2</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Surv</span>(生存時間, 打ち切り) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> 群, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> survdata))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call: survfit(formula = Surv(生存時間, 打ち切り) ~ 群, data = survdata)
+
+        n events median 0.95LCL 0.95UCL
+群=試験 5      3     76      30      NA
+群=対照 4      3     15       8      NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ログランク検定</span></span>
+<span id="cb88-2">(lr  <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">survdiff</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Surv</span>(生存時間, 打ち切り) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> 群, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> survdata))</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+survdiff(formula = Surv(生存時間, 打ち切り) ~ 群, data = survdata)
+
+        N Observed Expected (O-E)^2/E (O-E)^2/V
+群=試験 5        3     4.74     0.637      3.62
+群=対照 4        3     1.26     2.387      3.62
+
+ Chisq= 3.6  on 1 degrees of freedom, p= 0.06 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb90" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># コンパクトなKM図</span></span>
+<span id="cb90-2">p <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggsurvfit</span>(fit2) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_risktable</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_censor_mark</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_pvalue</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Log-rank {p.value}"</span>)</span>
+<span id="cb90-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(p)</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://kawa-a.github.io/medstat/posts/post-with-code/index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>例8.3：多変量の生存時間データ（265ページ）</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 全体ログランク</span></span>
+<span id="cb91-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">survdiff</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Surv</span>(time, status) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> 治療群, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> dat)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+survdiff(formula = Surv(time, status) ~ 治療群, data = dat)
+
+             N Observed Expected (O-E)^2/E (O-E)^2/V
+治療群=試験 59       49     57.8      1.35      3.47
+治療群=対照 61       57     48.2      1.63      3.47
+
+ Chisq= 3.5  on 1 degrees of freedom, p= 0.06 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cox（調整あり）</span></span>
+<span id="cb93-2">fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coxph</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Surv</span>(time, status) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> 治療群 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 年齢 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 遺伝子, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> dat)</span>
+<span id="cb93-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(fit)</span></code></pre></div></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+coxph(formula = Surv(time, status) ~ 治療群 + 年齢 + 遺伝子, 
+    data = dat)
+
+  n= 120, number of events= 106 
+
+              coef exp(coef) se(coef)     z Pr(&gt;|z|)    
+治療群対照 1.33997   3.81891  0.25173 5.323 1.02e-07 ***
+年齢       0.02281   1.02307  0.01385 1.647   0.0996 .  
+遺伝子陽性 1.89450   6.64921  0.26349 7.190 6.48e-13 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+           exp(coef) exp(-coef) lower .95 upper .95
+治療群対照     3.819     0.2619    2.3317     6.255
+年齢           1.023     0.9775    0.9957     1.051
+遺伝子陽性     6.649     0.1504    3.9672    11.144
+
+Concordance= 0.71  (se = 0.032 )
+Likelihood ratio test= 57.24  on 3 df,   p=2e-12
+Wald test            = 54.06  on 3 df,   p=1e-11
+Score (logrank) test = 55.44  on 3 df,   p=6e-12</code></pre>
+</div>
+</div>
 
 
 </section>
@@ -715,7 +2584,7 @@ font-style: inherit;">FALSE</span></span>
   <category>code</category>
   <category>analysis</category>
   <guid>https://kawa-a.github.io/medstat/posts/post-with-code/</guid>
-  <pubDate>Tue, 25 Aug 2026 15:00:00 GMT</pubDate>
+  <pubDate>Wed, 02 Sep 2026 15:00:00 GMT</pubDate>
   <media:content url="https://kawa-a.github.io/medstat/posts/post-with-code/R_logo_2000.png" medium="image" type="image/png" height="109" width="144"/>
 </item>
 <item>
@@ -738,7 +2607,7 @@ font-style: inherit;">FALSE</span></span>
  ]]></description>
   <category>news</category>
   <guid>https://kawa-a.github.io/medstat/posts/welcome/</guid>
-  <pubDate>Tue, 25 Aug 2026 15:00:00 GMT</pubDate>
+  <pubDate>Wed, 02 Sep 2026 15:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
