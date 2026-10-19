@@ -10,7 +10,30 @@
 <atom:link href="https://kawa-a.github.io/medstat/index.xml" rel="self" type="application/rss+xml"/>
 <description>サポートページ</description>
 <generator>quarto-1.8.25</generator>
-<lastBuildDate>Wed, 02 Sep 2026 15:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 18 Oct 2026 15:00:00 GMT</lastBuildDate>
+<item>
+  <title>修正ページ</title>
+  <dc:creator>川口淳 </dc:creator>
+  <link>https://kawa-a.github.io/medstat/posts/correction/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="図8.4255ページ" class="level1">
+<h1>図8.4（255ページ）</h1>
+<p><img src="https://kawa-a.github.io/medstat/posts/correction/図8.4.jpg" class="img-fluid"></p>
+<p>「新規治療群」→「試験群」，「対照治療群」→「対照群」</p>
+
+
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://kawa-a.github.io/medstat/posts/correction/</guid>
+  <pubDate>Sun, 18 Oct 2026 15:00:00 GMT</pubDate>
+</item>
 <item>
   <title>演習問題のデータ</title>
   <dc:creator>川口淳 </dc:creator>
@@ -59,7 +82,7 @@
   <category>code</category>
   <category>analysis</category>
   <guid>https://kawa-a.github.io/medstat/posts/data/</guid>
-  <pubDate>Wed, 02 Sep 2026 15:00:00 GMT</pubDate>
+  <pubDate>Sun, 18 Oct 2026 15:00:00 GMT</pubDate>
 </item>
 <item>
   <title>演習問題の解答例</title>
@@ -580,7 +603,7 @@
   <category>code</category>
   <category>analysis</category>
   <guid>https://kawa-a.github.io/medstat/posts/exercise/</guid>
-  <pubDate>Wed, 02 Sep 2026 15:00:00 GMT</pubDate>
+  <pubDate>Sun, 18 Oct 2026 15:00:00 GMT</pubDate>
 </item>
 <item>
   <title>R Code</title>
@@ -2584,8 +2607,8 @@ Score (logrank) test = 55.44  on 3 df,   p=6e-12</code></pre>
   <category>code</category>
   <category>analysis</category>
   <guid>https://kawa-a.github.io/medstat/posts/post-with-code/</guid>
-  <pubDate>Wed, 02 Sep 2026 15:00:00 GMT</pubDate>
-  <media:content url="https://kawa-a.github.io/medstat/posts/post-with-code/R_logo_2000.png" medium="image" type="image/png" height="109" width="144"/>
+  <pubDate>Sun, 18 Oct 2026 15:00:00 GMT</pubDate>
+  <media:content url="https://kawa-a.github.io/medstat/posts/post-with-code/R_logo_2000.png" medium="image" type="image/png" height="110" width="144"/>
 </item>
 <item>
   <title>Welcome To サポートページ</title>
@@ -2607,7 +2630,7 @@ Score (logrank) test = 55.44  on 3 df,   p=6e-12</code></pre>
  ]]></description>
   <category>news</category>
   <guid>https://kawa-a.github.io/medstat/posts/welcome/</guid>
-  <pubDate>Wed, 02 Sep 2026 15:00:00 GMT</pubDate>
+  <pubDate>Sun, 18 Oct 2026 15:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

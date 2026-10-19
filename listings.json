@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/correction/index.html",
       "/posts/data/index.html",
       "/posts/exercise/index.html",
       "/posts/post-with-code/index.html",
